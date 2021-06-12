@@ -90,6 +90,73 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   }
 
+  // a5)
+  // Function to register and render selected card
+  function selectedCard() {
+
+    // In step 4 we added the attribute data-id to mark
+    // each card in the game with a number. Here we store
+    // the data-id attribute value of each card in the
+    // variable cardId to make it usable for this function
+    var cardId = this.getAttribute("data-id");
+
+    // t: Test Log cardId value in console of the card flipped
+    console.log("t5: cardId: " + cardId);
+
+    // Creating an empty array cardsFlipped[] in step a5.2
+    // Populate empty array by appending image name value
+    cardsFlipped.push(playingCards[cardId].name);
+
+    // t: Test log data type and name of (1st and 2nd) card
+    console.log("t6: " + typeof(cardsFlipped) + " = " + cardsFlipped + " " + cardsFlipped.length);
+
+    // Creating an empty cardsFlippedId[] array in step a5.3
+    // Populate empty array by appending cardId value
+    cardsFlippedId.push(cardId);
+
+    // t: Test log content of cardsFlippedId to console
+    console.log("t7: cardsFlippedId = " + cardsFlippedId);
+
+    // Render the selected card
+    this.setAttribute("src", playingCards[cardId].img);
+
+
+    // If 2 cards have been chosen evaluate cards with setTimeout
+
+    // OPTION 1
+    // Issues: User can double click the same image which counts as a match
+    // if (cardsFlipped.length === 2) {
+    //   setTimeout(evaluateCards, 500);
+    // }
+
+    // OPTION 2
+    // Fix: User can double click the same image which counts as a match - is fixed
+    if (cardsFlippedId.length == 2) {
+
+      // b1) Preventing to select the same card twice
+      if (cardsFlippedId[0] === cardsFlippedId[1]) {
+        displayAlert.textContent = "You picked the same card. Choose another one!";
+        cardsFlippedId.pop();
+        cardsFlipped.pop();
+        return;
+      }
+      setTimeout(evaluateCards, 500)
+
+    } else if (cardsFlippedId.length >= 3) {
+        displayAlert.textContent = "You chose more than 2 cards!";
+        // cardsFlippedId.pop();
+        // cardsFlipped.pop();
+        // return;
+
+    }
+
+    // Issue: If clicking quickly over some random cards you can flipp three or more cards
+    // Fix: allow only 2 cards to flip per turn! How?
+
+    // Test if selectedCard is recognized in console
+    console.log("t5: Testing if selectedCard function prints to console: Ok");
+  }
+
   // a4.1)
   createDeckOfCards();
 
