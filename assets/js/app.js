@@ -13,7 +13,7 @@ console.log("t1: Link from app.js to index.html established: Ok");
 // a1)
 // Load this "Memory Game" when DOM content is loaded
 document.addEventListener('DOMContentLoaded', function(event) {
-  
+
   // t: Test if event listener works to check if DOM is loaded
   console.log("t2: The Dom has loaded: Ok");
 
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
       // Adding an event listener to check for clicks on the card
       // which call the function 'selectedCard', see step a5
-      // card.addEventListener("click", selectedCard);
+      card.addEventListener("click", selectedCard);
 
       // Fix: User can double click the same image which counts as a match
 
@@ -107,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     console.log("t4: Testing if this function prints to console: Ok");
 
   }
+
 
   // a6)
   // Evaluate flipped cards
@@ -132,6 +133,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
       cards[firstChoice].removeEventListener("click", selectedCard);
       cards[secondChoice].removeEventListener("click", selectedCard);
 
+
       matchingCards.push(cardsFlipped); // see a6.1
 
       // t: Test
@@ -156,6 +158,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     }
 
   }
+
 
   // a5)
   // Function to register and render selected card
@@ -187,6 +190,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     // Render the selected card
     this.setAttribute("src", playingCards[cardId].img);
 
+
     // If 2 cards have been chosen evaluate cards with setTimeout
 
     // OPTION 1
@@ -208,12 +212,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
       }
       setTimeout(evaluateCards, 500)
 
-    }
+    } 
+    
     // } else if (cardsFlippedId.length >= 3) {
     //     displayAlert.textContent = "You chose more than 2 cards!";
-    //     cardsFlippedId.pop();
-    //     cardsFlipped.pop();
-    //     return;
+    //     // cardsFlippedId.pop();
+    //     // cardsFlipped.pop();
+    //     // return;
     // }
 
     // Issue: If clicking quickly over some random cards you can flipp three or more cards
