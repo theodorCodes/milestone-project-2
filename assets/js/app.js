@@ -37,5 +37,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
     {name: "card6", img: "assets/images/card6.png"}
 
   ];
-  
+
+  // t: Test if array prints to console
+  console.log("t3: Test if array prints to console: " + playingCards[0] + " Ok");
+
 });
