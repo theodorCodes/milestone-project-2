@@ -14,6 +14,15 @@ This grid based memory game where the player as to flip through a group of cards
 
 
 ## Methods used
+.push()
+.querySelector()
+.setAttribute()
+.getAttribute()
+.createElement()
+.appendChild()
+.Math.random()
+.sort()
+For Loops
 
 
 # Bugs found and fixed
