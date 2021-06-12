@@ -1,3 +1,6 @@
+... this project is under development
+
+
 # Memory Game
 
 This grid based memory game where the player as to flip through a group of cards to find pairs that match with each other. When two cards are identical and match each other then the player gains 1 point.
