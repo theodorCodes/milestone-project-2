@@ -41,11 +41,29 @@ document.addEventListener('DOMContentLoaded', function(event) {
   // t: Test if array prints to console
   console.log("t3: Test if array prints to console: " + playingCards[0] + " Ok");
 
+
+  // a7)
+  // Randomize cards
+  playingCards.sort(() => 0.5 - Math.random());
+
   // a3.1) Get board element from index.html and store as board
   const board = document.querySelector(".board");
 
   // a3.2) Get result element from index.html and set as displayResult
   const displayResult = document.querySelector("#result");
+
+  // a8) Get display-alert from index.html and set as displayAlert
+  const displayAlert = document.querySelector("#display-alert");
+
+  // a5.2) Creating an empty array cardsFlipped[]
+  var cardsFlipped = [];
+
+  // a5.3) Create variable cardsFlippedId as empty array
+  var cardsFlippedId = [];
+
+  // a6.1) Create variable matchingCards as empty array
+  var matchingCards = [];
+
 
   // a4)
   // Creating deck of cards
@@ -90,6 +108,55 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
   }
 
+  // a6)
+  // Evaluate flipped cards
+  function evaluateCards() {
+
+    // Store all cards in cards
+    var cards = document.querySelectorAll("img");
+
+    // Setting the 1st value of cardsFlippedId as firstChoice and
+    // setting the 2nd value of cardsFlippedId as secondChoice
+    const firstChoice = cardsFlippedId[0];
+    const secondChoice = cardsFlippedId[1];
+
+    // Compare card names
+    if (cardsFlipped[0] === cardsFlipped[1]) {
+      // alert("You found a match");
+      displayAlert.textContent = "You found a match!";
+      // cards[firstChoice].setAttribute("src", "assets/images/white.png");
+      // cards[secondChoice].setAttribute("src", "assets/images/white.png");
+      // Advance: show only for limited time
+
+      // Fix: repeatable clicks on selected cards
+      cards[firstChoice].removeEventListener("click", selectedCard);
+      cards[secondChoice].removeEventListener("click", selectedCard);
+
+      matchingCards.push(cardsFlipped); // see a6.1
+
+      // t: Test
+      console.log("matchingCards " + matchingCards.length);
+
+    } else {
+      cards[firstChoice].setAttribute("src", "assets/images/blank.png");
+      cards[secondChoice].setAttribute("src", "assets/images/blank.png");
+      // alert("Sorry, try again");
+      displayAlert.textContent = "Try again";
+    }
+
+    // Reset cardsFlipped value back to an empty array
+    cardsFlipped = []; // see A5.2, make ready to flip again
+    // Reset cardsFlippedId value back to and empty array
+    cardsFlippedId = []; // see A5.3, make ready to flip again
+
+    displayResult.textContent = matchingCards.length; // see a6.2
+
+    if (matchingCards.length === playingCards.length/2) {
+      displayAlert.textContent = "Congratulations! You found them all";
+    }
+
+  }
+
   // a5)
   // Function to register and render selected card
   function selectedCard() {
@@ -120,7 +187,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
     // Render the selected card
     this.setAttribute("src", playingCards[cardId].img);
 
-
     // If 2 cards have been chosen evaluate cards with setTimeout
 
     // OPTION 1
@@ -142,13 +208,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
       }
       setTimeout(evaluateCards, 500)
 
-    } else if (cardsFlippedId.length >= 3) {
-        displayAlert.textContent = "You chose more than 2 cards!";
-        // cardsFlippedId.pop();
-        // cardsFlipped.pop();
-        // return;
-
     }
+    // } else if (cardsFlippedId.length >= 3) {
+    //     displayAlert.textContent = "You chose more than 2 cards!";
+    //     cardsFlippedId.pop();
+    //     cardsFlipped.pop();
+    //     return;
+    // }
 
     // Issue: If clicking quickly over some random cards you can flipp three or more cards
     // Fix: allow only 2 cards to flip per turn! How?
