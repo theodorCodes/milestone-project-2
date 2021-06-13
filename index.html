@@ -5,31 +5,36 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <!-- Browser tab title -->
   <title>Memory Game</title>
-
   <!-- jQuery library by jQuery.com -->
   <!-- <script src="assets/js/jquery-3.6.0.js" type="text/javascript"></script> -->
-
   <!-- Import of local stylesheet -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-
   <!-- Custom JavaScript -->
   <script src="assets/js/app.js" type="text/javascript"></script>
 </head>
 
 <body>
-
-  <!-- Anouncements -->
-  <h3><span id="display-alert"></span></h3>
-
-  <!-- Scores -->
-  <h3>Score:<span id="result"></span></h3>
-
-  <!-- Deck of Cards -->
-  <div class="board"></div>
-
+  <header>
+    <!-- Anouncements -->
+    <h3><span id="display-alert"></span></h3>
+    <!-- Scores -->
+    <h3>Score:<span id="result"></span></h3>
+  </header>
+  <main>
+    <!-- Deck of Cards -->
+    <div class="board"></div>
+    <!-- Reset Game -->
+    <div class="reset">
+      <button id="reset" type="button" value="Reload Page" onClick="window.location.reload(true)">Reset</button>
+    </div>
+  </main>
+  <footer>
+    <div class="footer-content">
+      <span class="footer-text">Just some information at the bottom.</span>
+    </div>
+  </footer>
 </body>
 
 </html>

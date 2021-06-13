@@ -1,23 +1,23 @@
 /*
 Memory Game - Comments Structure
-a Marks: Bare minimum code to get it work and playable
-b Marks: Fixes to make the game more stable and prevent obvious bugs
-c Marks: Advanced levels
-d Marks: Styling and animation
-t Marks:
+A Marks: Bare minimum code to get it work and playable
+B Marks: Fixes to make the game more stable and prevent obvious bugs
+C Marks: Advanced levels
+D Marks: Styling and animation
+t Marks: testing stuff
 */
 
 // t: Test if index.html loads app.js file
 console.log("t1: Link from app.js to index.html established: Ok");
 
-// a1)
+// A1)
 // Load this "Memory Game" when DOM content is loaded
 document.addEventListener('DOMContentLoaded', function(event) {
 
   // t: Test if event listener works to check if DOM is loaded
   console.log("t2: The Dom has loaded: Ok");
 
-  // a2)
+  // A2)
   // Create array with objects of cards
   const playingCards = [
 
@@ -42,33 +42,33 @@ document.addEventListener('DOMContentLoaded', function(event) {
   console.log("t3: Test if array prints to console: " + playingCards[0] + " Ok");
 
 
-  // a7)
+  // A7)
   // Randomize cards
   playingCards.sort(() => 0.5 - Math.random());
 
-  // a3.1) Get board element from index.html and store as board
+  // A3.1) Get board element from index.html and store as board
   const board = document.querySelector(".board");
 
-  // a3.2) Get result element from index.html and set as displayResult
+  // A3.2) Get result element from index.html and set as displayResult
   const displayResult = document.querySelector("#result");
 
-  // a8) Get display-alert from index.html and set as displayAlert
+  // A8) Get display-alert from index.html and set as displayAlert
   const displayAlert = document.querySelector("#display-alert");
 
-  // a5.2) Creating an empty array cardsFlipped[]
+  // A5.2) Creating an empty array cardsFlipped[]
   var cardsFlipped = [];
 
-  // a5.3) Create variable cardsFlippedId as empty array
+  // A5.3) Create variable cardsFlippedId as empty array
   var cardsFlippedId = [];
 
-  // a6.1) Create variable matchingCards as empty array
+  // A6.1) Create variable matchingCards as empty array
   var matchingCards = [];
 
 
-  // a4)
+  // A4)
   // Creating deck of cards
   // Create board content by looping through playingCards
-  // and execute this at the end, see step a4.1 at the end
+  // and execute this at the end, see step A4.1 at the end
   function createDeckOfCards() {
 
     // loop through each card in playingCards
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
       card.setAttribute("data-id", i);
 
       // Adding an event listener to check for clicks on the card
-      // which call the function 'selectedCard', see step a5
+      // which call the function 'selectedCard', see step A5
       card.addEventListener("click", selectedCard);
 
       // Fix: User can double click the same image which counts as a match
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   }
 
 
-  // a6)
+  // A6)
   // Evaluate flipped cards
   function evaluateCards() {
 
@@ -134,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
       cards[secondChoice].removeEventListener("click", selectedCard);
 
 
-      matchingCards.push(cardsFlipped); // see a6.1
+      matchingCards.push(cardsFlipped); // see A6.1
 
       // t: Test
       console.log("matchingCards " + matchingCards.length);
@@ -151,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     // Reset cardsFlippedId value back to and empty array
     cardsFlippedId = []; // see A5.3, make ready to flip again
 
-    displayResult.textContent = matchingCards.length; // see a6.2
+    displayResult.textContent = matchingCards.length; // see A6.2
 
     if (matchingCards.length === playingCards.length/2) {
       displayAlert.textContent = "Congratulations! You found them all";
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   }
 
 
-  // a5)
+  // A5)
   // Function to register and render selected card
   function selectedCard() {
 
@@ -173,14 +173,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
     // t: Test Log cardId value in console of the card flipped
     console.log("t5: cardId: " + cardId);
 
-    // Creating an empty array cardsFlipped[] in step a5.2
+    // Creating an empty array cardsFlipped[] in step A5.2
     // Populate empty array by appending image name value
     cardsFlipped.push(playingCards[cardId].name);
 
     // t: Test log data type and name of (1st and 2nd) card
     console.log("t6: " + typeof(cardsFlipped) + " = " + cardsFlipped + " " + cardsFlipped.length);
 
-    // Creating an empty cardsFlippedId[] array in step a5.3
+    // Creating an empty cardsFlippedId[] array in step A5.3
     // Populate empty array by appending cardId value
     cardsFlippedId.push(cardId);
 
@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     // Fix: User can double click the same image which counts as a match - is fixed
     if (cardsFlippedId.length == 2) {
 
-      // b1) Preventing to select the same card twice
+      // B1) Preventing to select the same card twice
       if (cardsFlippedId[0] === cardsFlippedId[1]) {
         displayAlert.textContent = "You picked the same card. Choose another one!";
         cardsFlippedId.pop();
@@ -228,7 +228,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
     console.log("t5: Testing if selectedCard function prints to console: Ok");
   }
 
-  // a4.1)
+  // A4.1)
   createDeckOfCards();
+
+
+  function resetGame() {
+
+    // List of all variables
+    if(confirm("Are you sure, want to refresh?")){
+      location.reload();
+    }
+  }
 
 });

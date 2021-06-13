@@ -18,3 +18,17 @@ img {
   width: 100px;
   height: auto;
 }
+
+.reset {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: center;
+}
