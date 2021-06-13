@@ -15,6 +15,13 @@ This grid based memory game where the player as to flip through a group of cards
 - Evaluate selected cards function
 - Variables to store cards and scores
 
+Prepare cards
+          v
+Use cards to create deck of cards
+                     v
+each card has a click function, when clicked
+                                       v
+register, render and evaluate cards chosen
 
 ## Methods used
 .push()
@@ -62,3 +69,9 @@ Bug fixed:
 // selectedCard(); # commenting the console.log fixed the bug
 
 ```
+
+Bug 3
+Gameplay: If clicking fast enough player can select multiple cards that exceeds 2 cards to compair against each other.
+    // ISSUE: in case of 'multiple selections' it stores the data-id of the last entry
+    // the allowance of multi selections is an issue
+    // storing the last item when someone randomly clicks more then 2 cards is an issue

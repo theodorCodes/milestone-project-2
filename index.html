@@ -17,8 +17,8 @@
 
 <body>
   <header>
-    <!-- Anouncements -->
-    <h3><span id="display-alert"></span></h3>
+    <!-- Game assistant -->
+    <h3><span id="display-assistant"></span></h3>
     <!-- Scores -->
     <h3>Score:<span id="result"></span></h3>
   </header>
@@ -27,6 +27,7 @@
     <div class="board"></div>
     <!-- Reset Game -->
     <div class="reset">
+      <!-- <button id="reset" type="button" value="Reload Page" onClick="resetButton()">Reset</button> -->
       <button id="reset" type="button" value="Reload Page" onClick="window.location.reload(true)">Reset</button>
     </div>
   </main>
@@ -35,6 +36,12 @@
       <span class="footer-text">Just some information at the bottom.</span>
     </div>
   </footer>
+
+  <!-- <script>
+    function resetButton() {
+      window.location.reload(true);
+    }
+  </script> -->
 </body>
 
 </html>
