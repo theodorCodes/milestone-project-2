@@ -10,14 +10,14 @@ This grid based memory game where the player as to flip through a group of cards
 # Overview
 
 - Prepare available playing cards
-- Prepare deck of cards UI for gameplay in the browser
+- Prepare game layout
 - Select cards function
 - Evaluate selected cards function
 - Variables to store cards and scores
 
 Prepare cards
           v
-Use cards to create deck of cards
+Use cards to create game layout
                      v
 each card has a click function, when clicked
                                        v

@@ -7,11 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Browser tab title -->
   <title>Memory Game</title>
-  <!-- jQuery library by jQuery.com -->
-  <!-- <script src="assets/js/jquery-3.6.0.js" type="text/javascript"></script> -->
   <!-- Import of local stylesheet -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-  <!-- Custom JavaScript -->
+  <!-- Load JavaScript memory game -->
   <script src="assets/js/app.js" type="text/javascript"></script>
 </head>
 
@@ -19,15 +17,39 @@
   <header>
     <!-- Game assistant -->
     <h3><span id="display-assistant"></span></h3>
-    <!-- Scores -->
-    <h3>Score:<span id="result"></span></h3>
+    <!-- C) Modal view -->
+    <div id="modal-view" class="modal">
+      <!-- C) Modal content -->
+      <div class="modal-assistant">
+        <span class="closeModal">x</span>
+        <div class="modal-stats">
+          <p><span id="msg"></span></p>
+          <p>Level: <span id="levelModal"></span></p>
+          <p>Total Score: <span id="score"></span></p>
+          <p>Total Moves: <span id="movesModal"></span></p>
+        </div>
+        <div class="modal-button-wrap">
+          <button id="optionReset" type="button" value="Reload Page"
+            onClick="window.location.reload(true)">Reset</button>
+          <button id="optionNextLevel">Next Level</button>
+        </div>
+      </div>
+    </div>
+    <!-- Stats -->
+    <div class="stats">
+      <h3>Moves:<span id="moves"></span></h3>
+      <h3>Level:<span id="level"></span></h3>
+      <h3>Score:<span id="result"></span></h3>
+    </div>
   </header>
   <main>
-    <!-- Deck of Cards -->
+    <!-- Deck of cards for memory game -->
     <div class="board"></div>
-    <!-- Reset Game -->
+    <!-- Reset game -->
     <div class="reset">
       <button id="reset" type="button" value="Reload Page" onClick="window.location.reload(true)">Reset</button>
+      <!-- Open modal assistant test button -->
+      <button id="openModal">Open Modal</button>
     </div>
   </main>
   <footer>
@@ -35,6 +57,25 @@
       <span class="footer-text">Just some information at the bottom.</span>
     </div>
   </footer>
+  <script>
+    var modal = document.getElementById("modal-view");
+    var btn = document.getElementById("openModal");
+    var span = document.getElementsByClassName("closeModal")[0];
+
+    btn.onclick = function () {
+      modal.style.display = "block";
+    }
+
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  </script>
 </body>
 
 </html>
