@@ -17,39 +17,29 @@ document.addEventListener('DOMContentLoaded', function(event) {
   // t: test if event listener works to check if DOM is loaded
   console.log("t2: The Dom has loaded: Ok");
 
-
-
   // A) VARIABLES
-  const board = document.querySelector(".board"); // A3.1) Get board element
-  const displayResult = document.querySelector("#result"); // A3.2) Get result element
-  const displayAssistant = document.querySelector("#display-assistant"); // A8) Get display-assistant
-  const modalView = document.querySelector(".modal"); // C) Get modal view
-  const modalContent = document.querySelector(".modal-assistant"); // C) Get modal content
+  let board = document.querySelector(".board"); // A3.1) Get board element
+  let displayResult = document.querySelector("#result"); // A3.2) Get result element
+  let displayAssistant = document.querySelector("#display-assistant"); // A8) Get display-assistant
+  let moves = document.querySelector("#moves"); // C) Stats table
+  let level = document.querySelector("#level"); // C) Stats table
 
-  let countLevels = 1; // Stores the level
-  let countMoves = 0; // Stores player moves
+  let modalView = document.querySelector(".modal"); // C) Get modal view
+  let modalContent = document.querySelector(".modal-assistant"); // C) Get modal content
+  let msgModal = document.querySelector("#msg-modal"); // C) Modal view
+  let levelModal = document.querySelector("#level-modal"); // C)  Modal view
+  let scoreModal = document.querySelector("#score-modal"); // C) Modal view
+  let movesModal = document.querySelector("#moves-modal"); // C) Modal view
+
   let playingCards = []; // A2) Playing cards
   let cardsFlipped = []; // A5.2) Creating an empty array
   let cardsFlippedId = []; // A5.3) Create empty array
   let matchingCards = []; // A6.1) Create empty array
+  let countLevels = 1; // C) Stores the level
+  let countMoves = 0; // C) Stores player moves
 
-  // C) VARIABLES MODAL VIEW
-  // var msg = document.querySelector("#msg");
-  // var level = document.querySelector("#level");
-  // var score = document.querySelector("#score");
-  // const moves = document.querySelector("#moves");
-  // const movesModal = document.querySelector("#movesModal");
-  // var optionReset = document.querySelector("#optionReset");
-  // var optionNextLevel = document.querySelector("#optionNextLevel");
-
-  let msg = document.querySelector("#msg");
-  let level = document.querySelector("#level");
-  let score = document.querySelector("#score");
-  let moves = document.querySelector("#moves");
-  let movesModal = document.querySelector("#movesModal");
   let optionReset = document.querySelector("#optionReset");
   let optionNextLevel = document.querySelector("#optionNextLevel");
-
 
 
 
@@ -74,7 +64,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
   ];
 
   const cardPackTwo = [];
-
   const cardPackThree = [];
 
 
@@ -97,18 +86,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-
-
-
   // A4) GAME LAYOUT
   // Create deck of cards by looping through playingCards
   // see step A4.1 at the end
   function createGameLayout() {
 
     // Display moves, level and score above game layout
-    displayResult.textContent = matchingCards.length;
-    level.textContent = countLevels;
     moves.textContent = countMoves;
+    level.textContent = countLevels;
+    displayResult.textContent = matchingCards.length;
+    
 
     // loop through each card in playingCards
     for (let i = 0; i < playingCards.length; i++) {
@@ -192,32 +179,27 @@ document.addEventListener('DOMContentLoaded', function(event) {
       displayAssistant.textContent = "Please try again";
     }
 
-
-    // Reset cardsFlipped value back to an empty array
+    // RESET cardsFlipped value back to an empty array
     cardsFlipped = []; // see A5.2, make ready to flip again
-    // Reset cardsFlippedId value back to and empty array
+    // RESET cardsFlippedId value back to and empty array
     cardsFlippedId = []; // see A5.3, make ready to flip again
-
 
     // Display SCORE COUNT
     displayResult.textContent = matchingCards.length; // see A6.2
 
-    // END of game
+    // END of level
     if (matchingCards.length === playingCards.length/2) {
-      displayAssistant.textContent = "Congratulations! You found them all";
 
-      // C) Create modal view
+      // C) Create modal view content
+      msgModal.textContent = "Congratulations! You found them all"; // Sucess message
+      levelModal.textContent = countLevels; // Level played
+      scoreModal.textContent = matchingCards.length; // Total score
+      movesModal.textContent = countMoves; // For turns show moves/2
 
-
-      msg.textContent = "Congratulations! You found them all";
-      levelModal.textContent = countLevels;
-      movesModal.textContent = countMoves;
-      score.textContent = matchingCards.length;
-      
       // optionReset.textContent =
-      // optionNextLevel.textContent =
+      // optionNextLevel.textContent = // Should be onclick ... this function
 
-      // Create display content
+      // Unveil modal view
       modalView.style.display = "block";
 
     }
@@ -272,11 +254,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     // C) COUNT MOVES feature 
     // Plus 1 for every move in countMoves
-    countMoves++;
-    // Display moves as stats above game layout
+    countMoves = countMoves + 0.5;
+    // Display moves in stats table above game layout
     moves.textContent = countMoves;
-    // Display levels as stats above game layout
-    level.textContent = countLevels;
 
   };
 

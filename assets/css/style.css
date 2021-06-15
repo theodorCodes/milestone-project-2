@@ -73,7 +73,7 @@ img {
 }
 
 /* Modal assistant close button */
-.closeModal {
+.close-modal {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
@@ -81,8 +81,8 @@ img {
 }
 
 /* Modal assistant close button hover */
-.closeModal:hover,
-.closeModal:focus {
+.close-modal:hover,
+.close-modal:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
