@@ -5,7 +5,7 @@
 
 This grid based memory game where the player as to flip through a group of cards to find pairs that match with each other. When two cards are identical and match each other then the player gains 1 point.
 
-
+https://www.healthline.com/health/mental-health/how-to-get-a-photographic-memory
 
 # Overview
 
@@ -75,3 +75,8 @@ Gameplay: If clicking fast enough player can select multiple cards that exceeds 
     // ISSUE: in case of 'multiple selections' it stores the data-id of the last entry
     // the allowance of multi selections is an issue
     // storing the last item when someone randomly clicks more then 2 cards is an issue
+
+
+# Polishing Gameplay
+
+Adding the feature to count moves for each step as 0.5 and used Math.round() to display only round numbers for the player. 

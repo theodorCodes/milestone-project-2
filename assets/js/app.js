@@ -1,266 +1,372 @@
 /*
 Memory Game - Comments Structure
 A) Bare minimum code to get a playable result
+A1.2) Numbers after the letter refer to the order I wrote this script 
 B) Fixes to make the game more stable and prevent obvious bugs
 C) More features and additional levels
 D) Styling and animation
 t) testing stuff
 */
 
-// t: Test if index.html loads app.js file
+// t: test if index.html loads app.js file
 console.log("t1: Link from app.js to index.html established: Ok");
 
 // A1)
-// Load this "Memory Game" when DOM content is loaded
+// load this "Memory Game" when DOM content is loaded
 document.addEventListener('DOMContentLoaded', function(event) {
 
   // t: test if event listener works to check if DOM is loaded
   console.log("t2: The Dom has loaded: Ok");
 
-  // A) VARIABLES
-  let board = document.querySelector(".board"); // A3.1) Get board element
-  let displayResult = document.querySelector("#result"); // A3.2) Get result element
-  let displayAssistant = document.querySelector("#display-assistant"); // A8) Get display-assistant
-  let moves = document.querySelector("#moves"); // C) Stats table
-  let level = document.querySelector("#level"); // C) Stats table
+  // A) VARIABLES general
+  let board = document.querySelector(".board"); // A3.1) shows playing cards
+  let displayResult = document.querySelector("#result"); // A3.2) shows score
+  let gameAssistant = document.querySelector("#game-assistant"); // A8) shows game alerts
+  let moves = document.querySelector("#moves"); // C) shows player moves
+  let level = document.querySelector("#level"); // C) shows game level
 
-  let modalView = document.querySelector(".modal"); // C) Get modal view
-  let modalContent = document.querySelector(".modal-assistant"); // C) Get modal content
-  let msgModal = document.querySelector("#msg-modal"); // C) Modal view
-  let levelModal = document.querySelector("#level-modal"); // C)  Modal view
-  let scoreModal = document.querySelector("#score-modal"); // C) Modal view
-  let movesModal = document.querySelector("#moves-modal"); // C) Modal view
+  // C) variables - modal game assistant
+  let modalAssistant = document.querySelector(".modal-view-assistant"); // C) to show/hide modal view
+  let modalMsg1 = document.querySelector("#modal-msg-1"); // C) shows modal content 1
+  let modalMsg2 = document.querySelector("#modal-msg-2"); // C) shows modal content 2
+  let modalMsg3 = document.querySelector("#modal-msg-3"); // C) shows modal content 3
+  let modalMsg4 = document.querySelector("#modal-msg-4"); // C) shows modal content 4
+  let modalBtnOption = document.querySelector("#modal-btn-option"); // C) Modal view button
 
-  let playingCards = []; // A2) Playing cards
-  let cardsFlipped = []; // A5.2) Creating an empty array
-  let cardsFlippedId = []; // A5.3) Create empty array
-  let matchingCards = []; // A6.1) Create empty array
-  let countLevels = 1; // C) Stores the level
-  let countMoves = 0; // C) Stores player moves
+  // C) variables - modal preview for photographic-memory game play
+  let modalPreviewAssistant = document.querySelector(".modal-preview-assistant"); // C) to show/hide modal view
+  let modalPreview = document.querySelector(".modal-preview"); // C) shows card preview
+  let modalPreviewBtnOption = document.querySelector("#modal-preview-btn-option"); // C) Modal view button
 
-  let optionReset = document.querySelector("#optionReset");
-  let optionNextLevel = document.querySelector("#optionNextLevel");
-
-
-
-  // A2) PLAYING CARDS
-  // Create array with objects of cards
-  const cardPackOne = [
-
-    // with image name and path for each img
-    // Each card is repeated to create pairs
-    {name: "card1", img: "assets/images/card1.png"},
-    {name: "card1", img: "assets/images/card1.png"},
-    {name: "card2", img: "assets/images/card2.png"},
-    {name: "card2", img: "assets/images/card2.png"},
-    {name: "card3", img: "assets/images/card3.png"},
-    {name: "card3", img: "assets/images/card3.png"},
-    {name: "card4", img: "assets/images/card4.png"},
-    {name: "card4", img: "assets/images/card4.png"},
-    {name: "card5", img: "assets/images/card5.png"},
-    {name: "card5", img: "assets/images/card5.png"},
-    {name: "card6", img: "assets/images/card6.png"},
-    {name: "card6", img: "assets/images/card6.png"}
-  ];
-
-  const cardPackTwo = [];
-  const cardPackThree = [];
+  let playingCards = []; // A2) store playing cards
+  let cardsFlipped = []; // A5.2) store cards chosen
+  let cardsFlippedId = []; // A5.3) store cards chosen id
+  let matchingCards = []; // A6.1) store cards matched
+  let currentLevel = 0; // C) store game level
+  let countMoves = 0; // C) store player moves
 
 
 
-  // C) CARD OPTIONS depending on game level
-  // Merging cardPack's arrays with .concat()
-  if (countLevels === 1) {
-    playingCards = playingCards.concat(cardPackOne);
-  } else if (countLevels === 2) {
-    playingCardss = cardPackOne.concat(cardPackTwo);
-  } else if (countLevels === 3) {
-    playingCards = cardPackOne.concat(cardPackTwo, cardPackThree);
-  };
+  // C) MODAL VIEW game assistant and level creator
+  modalAssistant.style.display = "block"; // show modal view
+  modalMsg1.textContent = "Is a photographic memory a real thing?"; // show teaser
+  modalMsg2.textContent = "Play this memory game and find out!"; // intro
+  modalMsg3.textContent = "Memorize the letter pairs, locations and colors"; // how to
+  modalMsg4.textContent = "when you're ready hit the challenge button"; // how to
+  modalBtnOption.textContent = "Let's Play"; // optional button text
+  modalBtnOption.addEventListener("click", levelOption); // calls levelOption function
 
-  // A7) Randomize cards
-  playingCards.sort(() => 0.5 - Math.random());
+  // function - to clear current game stats
+  function clearBoard() {
+    level.textContent = currentLevel; // display game level in the header
+    board.innerHTML = ""; // clear cards in gaming board
+    matchingCards.length = 0; // clear match count
+    countMoves = 0; // clear moves count
+    loadGame(); // load game
+    modalAssistant.style.display = "none"; // hide modal view
+  }
 
-  // t: test if array prints to console
-  console.log("t3: Test if array prints to console: " + playingCards[0] + " Ok");
+  // function - to load different levels
+  function levelOption() {
 
-
-
-  // A4) GAME LAYOUT
-  // Create deck of cards by looping through playingCards
-  // see step A4.1 at the end
-  function createGameLayout() {
-
-    // Display moves, level and score above game layout
-    moves.textContent = countMoves;
-    level.textContent = countLevels;
-    displayResult.textContent = matchingCards.length;
-    
-
-    // loop through each card in playingCards
-    for (let i = 0; i < playingCards.length; i++) {
-
-      // Create an HTML element of img for
-      // each card and store it in (var) card
-      var card = document.createElement("img");
-
-      // Set an attribute for each img of
-      // src="assets/images/blank.png" which will be
-      // the placeholder card that the player has to flip
-      card.setAttribute("src", "assets/images/blank.png");
-
-      // Set another attribute for each img of data-id
-      // with the value of the current loop number (i)
-      card.setAttribute("data-id", i);
-
-      // Adding an event listener to check for clicks on each card
-      // which call the function 'selectedCard', see REGISTER AND RENDER A5
-      card.addEventListener("click", selectedCard);
-
-      // Issue: User can double click the same image which counts as a match 
-      // Fix: see B1 and B2
-
-      // Append the variable 'card' to the HTML element 'board'
-      board.appendChild(card);
-
-      // By the end of this function the clickable tag element
-      // should look like this
-      // <img src="assets/images/blank.png" data-id="0">
-
-      // t: test log function repsonse
-      console.log("t4: Testing if this function logs to console: Ok");
-      
+    if (currentLevel === 0) {
+      currentLevel = 1; // set game level to 1
+      clearBoard(); // clear current game stats
+      modalPreviewAssistant.style.display = "block"; // show game preview
+      modalBtnOption.textContent = "Next Level"; // pre-set button text for next modal view
+    } else if (currentLevel === 1) {
+      currentLevel = 2;
+      clearBoard();
+      modalPreviewAssistant.style.display = "block";
+      modalBtnOption.textContent = "Next Level";
+    } else if (currentLevel === 2) {
+      currentLevel = 3;
+      clearBoard();
+      modalPreviewAssistant.style.display = "block";
+      modalBtnOption.textContent = "Next Level";
+    } else if (currentLevel === 3) {
+      currentLevel = 4;
+      clearBoard();
+      modalPreviewAssistant.style.display = "block";
+      modalBtnOption.textContent = "Play Again";
+    } else if (currentLevel === 4) {
+      currentLevel = 1;
+      playingCards = []; // empty playing cards when game completed
+      clearBoard();
+      modalBtnOption.textContent = "Next Level";
     }
 
-  };
+  } // function levelOption() END
 
 
 
-  // A6) GAME RESULTS and evaluation of flipped cards
-  function evaluateCards() {
+  // C) function - game play
+  function loadGame() {
 
-    // Store all cards in cards
-    var cards = document.querySelectorAll("img");
+    // A2) PLAYING CARDS for level 1-3
+    // create array with objects of cards with image name
+    // and path for each img . each card is repeated to create pairs
+    // extend game by adding more images or image cardPacks
 
-    // Store card id values
-    const firstChoice = cardsFlippedId[0]; // Set 1st value of cardsFlippedId
-    const secondChoice = cardsFlippedId[1]; // Set 2nd value of cardsFlippedId
-    const thirdChoice = cardsFlippedId[2];  // Set 3rd value of cardsFlippedId
-    // The 3rd value is reserved for the case of too many clicks within 500ms
+    const cardPackOne = [
+      {name: "card1", img: "assets/images/card1.png"},
+      {name: "card1", img: "assets/images/card1.png"},
+      {name: "card2", img: "assets/images/card2.png"},
+      {name: "card2", img: "assets/images/card2.png"},
+      {name: "card3", img: "assets/images/card3.png"},
+      {name: "card3", img: "assets/images/card3.png"},
+      {name: "card4", img: "assets/images/card4.png"},
+      {name: "card4", img: "assets/images/card4.png"}
+    ];
 
-    // CASE 1
-    // B) Fixed: If user manages to choose more than 2 cards within 500ms
-    if (cardsFlippedId.length > 2) {
-      cardsFlipped.pop(); // delete last array item which in this case is a third entry
-      cardsFlippedId.pop(); // delete last array item which in this case is a third entry
-      cards[thirdChoice].setAttribute("src", "assets/images/blank.png"); // resets the third card
+    const cardPackTwo = [
+      {name: "card5", img: "assets/images/card5.png"},
+      {name: "card5", img: "assets/images/card5.png"},
+      {name: "card6", img: "assets/images/card6.png"},
+      {name: "card6", img: "assets/images/card6.png"}
+    ];
+
+    const cardPackThree = [
+      {name: "card7", img: "assets/images/card7.png"},
+      {name: "card7", img: "assets/images/card7.png"},
+      {name: "card8", img: "assets/images/card8.png"},
+      {name: "card8", img: "assets/images/card8.png"}
+    ];
+
+    const cardPackFour = [
+      {name: "card9", img: "assets/images/card9.png"},
+      {name: "card9", img: "assets/images/card9.png"},
+      {name: "card10", img: "assets/images/card10.png"},
+      {name: "card10", img: "assets/images/card10.png"}
+    ];
+
+
+    // C) CARD OPTIONS depending on game level
+    // merging cardPack's arrays with .concat()
+    if (currentLevel === 1) {
+      playingCards = cardPackOne;
+    } else if (currentLevel === 2) {
+      playingCards = cardPackOne.concat(cardPackTwo);
+    } else if (currentLevel === 3) {
+      playingCards = cardPackOne.concat(cardPackTwo, cardPackThree);
+    } else if (currentLevel === 4) {
+      playingCards = cardPackOne.concat(cardPackTwo, cardPackThree, cardPackFour);
+    };
+
+    // A7) RANDOMIZE CARDS with .sort() and Math.random()
+    playingCards.sort(() => 0.5 - Math.random());
+
+    // t: test if array prints to console
+    console.log("t3: Current playingCards array: " + playingCards[0] + " Ok");
+
+
+
+    // C) function - that allows player to preview card set
+    function getCardPreview() {
+
+      for (let i = 0; i < playingCards.length; i++) {
+
+        let preview = playingCards[i].img; // store image path
+        let cardPreview = document.createElement("img"); // create html img element
+        cardPreview.setAttribute("src", preview); // set src attribute with image path
+        modalPreview.appendChild(cardPreview); // .append() images to modal preview
+      }
+      modalPreviewBtnOption.textContent = "Challenge Your Memory"; // set button text
+      modalPreviewBtnOption.addEventListener("click", closeCardPreview); // set event listener
     }
 
-    // CASE 2
-    // Comparing card name's
-    if (cardsFlipped[0] === cardsFlipped[1]) {
-      displayAssistant.textContent = "You found a match!";
+    getCardPreview(); // execute function
 
-      // B2) Fixed: Repeatable clicks on already selected cards by removing event listener
-      cards[firstChoice].removeEventListener("click", selectedCard);
-      cards[secondChoice].removeEventListener("click", selectedCard);
-
-      // Adding to score count
-      matchingCards.push(cardsFlipped); // see A6.1
-
-      // t: test log scores
-      console.log("t: matchingCards = " + matchingCards.length);
-
-    } else {
-
-      // CASE 3
-      cards[firstChoice].setAttribute("src", "assets/images/blank.png");
-      cards[secondChoice].setAttribute("src", "assets/images/blank.png");
-      displayAssistant.textContent = "Please try again";
+    function closeCardPreview() {
+      modalPreview.innerHTML = ""; // B) MPORTANT to empty modal preview content to avoid conflicts
+      modalPreviewAssistant.style.display = "none"; // hide modal preview
     }
 
-    // RESET cardsFlipped value back to an empty array
-    cardsFlipped = []; // see A5.2, make ready to flip again
-    // RESET cardsFlippedId value back to and empty array
-    cardsFlippedId = []; // see A5.3, make ready to flip again
-
-    // Display SCORE COUNT
-    displayResult.textContent = matchingCards.length; // see A6.2
-
-    // END of level
-    if (matchingCards.length === playingCards.length/2) {
-
-      // C) Create modal view content
-      msgModal.textContent = "Congratulations! You found them all"; // Sucess message
-      levelModal.textContent = countLevels; // Level played
-      scoreModal.textContent = matchingCards.length; // Total score
-      movesModal.textContent = countMoves; // For turns show moves/2
-
-      // optionReset.textContent =
-      // optionNextLevel.textContent = // Should be onclick ... this function
-
-      // Unveil modal view
-      modalView.style.display = "block";
-
-    }
-
-  };
 
 
+    // A4) GAME LAYOUT
+    // create deck of cards by looping through playingCards
+    // this function is executed at step A4.1 at the end
+    function createGameLayout() {
 
-  // A5) REGISTER AND RENDER selected cards
-  // Function to register and render selected card
-  function selectedCard() {
+      moves.textContent = countMoves; // display moves count in header
+      displayResult.textContent = matchingCards.length; // display score in header
+      // game level display is invoked in the clearBoard() function
 
-    // REGISTER selected card
-    // Added the attribute data-id to mark each card with a
-    // number in step 4. Storing the data-id attribute value 
-    // of each card in the variable cardId to make it usable 
-    // for this function
-    const cardId = this.getAttribute("data-id"); 
 
-    // Creating an empty array cardsFlipped[], see step A5.2
-    // Populate empty array by appending image name here
-    cardsFlipped.push(playingCards[cardId].name); 
-    // ISSUE HERE: player can add more than 2 cards when 
-    // clicking quickly over multiple cards
+      // loop through each card in playingCards
+      for (let i = 0; i < playingCards.length; i++) {
 
-    // Creating an empty cardsFlippedId[] array, see step A5.3
-    // Populate empty array by appending cardId value here
-    cardsFlippedId.push(cardId);
+        // create an html element of img for
+        // each card and store it in (var) card
+        var card = document.createElement("img");
 
-    // RENDER the selected card
-    this.setAttribute("src", playingCards[cardId].img);
+        // set an attribute for each img of
+        // src="assets/images/blank.png" which will be
+        // the placeholder card that the player has to flip
+        card.setAttribute("src", "assets/images/blank.png");
 
-    // t: test log registered cards
-    console.log("t: Selected card name = " + cardsFlipped);
-    console.log("t: Selected card id = " + cardsFlippedId);
-    console.log("t: Selected card total = " + cardsFlipped.length);
+        // set another attribute for each img of data-id
+        // with the value of the current loop number (i)
+        card.setAttribute("data-id", i);
 
-    // EVALUATE
-    // If 2 cards have been chosen, evaluate cards with setTimeout
-    if (cardsFlippedId.length === 2) {
+        // adding an event listener to check for clicks on each card
+        // which calls the function 'selectedCard', see REGISTER AND RENDER A5
+        card.addEventListener("click", selectedCard);
 
-      // B2) Preventing double click to select the same card twice
-      if (cardsFlippedId[0] === cardsFlippedId[1]) {
-        displayAssistant.textContent = "You picked the same card. Choose another one!";
-        cardsFlippedId.pop(); // delete last array item which in this case is a double entry
-        cardsFlipped.pop(); // delete last array item which in this case is a double entry
-        return;
-      } 
-      setTimeout(evaluateCards, 500)
+        // ISSUE: user can double click the same image which counts as a match 
+        // FIXED: see B1 and B2
 
-    }
+        // append the variable 'card' to the html element 'board'
+        board.appendChild(card);
 
-    // C) COUNT MOVES feature 
-    // Plus 1 for every move in countMoves
-    countMoves = countMoves + 0.5;
-    // Display moves in stats table above game layout
-    moves.textContent = countMoves;
+        // by the end of this function the clickable tag element
+        // should look like this
+        // <img src="assets/images/blank.png" data-id="0">
 
-  };
+        // t: test log function repsonse
+        // console.log("t4: Testing if this function logs to console: Ok");
+        
+      } // END of loop
 
-  // A4.1)
-  createGameLayout();
+    }; // function createGameLayout() END
 
-});
+
+
+    // A6) GAME RESULTS and evaluation of flipped cards
+    function evaluateCards() {
+
+      // store all card images in (var) cards
+      var cards = document.querySelectorAll("img");
+
+      // store card id values
+      const firstChoice = cardsFlippedId[0]; // set 1st value of cardsFlippedId
+      const secondChoice = cardsFlippedId[1]; // set 2nd value of cardsFlippedId
+      const thirdChoice = cardsFlippedId[2];  // set 3rd value of cardsFlippedId
+      // the 3rd value is reserved for the case of too many clicks within 500ms
+
+      // CASE 1
+      // B) FIXED: if user/player manages to choose more than 2 cards within 500ms
+      if (cardsFlippedId.length > 2) {
+        cardsFlipped.pop(); // delete last array item which in this case is a third entry
+        cardsFlippedId.pop(); // delete last array item which in this case is a third entry
+        cards[thirdChoice].setAttribute("src", "assets/images/blank.png"); // resets the third card
+      }
+
+      // CASE 2
+      // comparing card names
+      if (cardsFlipped[0] === cardsFlipped[1]) {
+        gameAssistant.textContent = "You found a match!";
+
+        // B2) FIXED: repeatable clicks on already selected cards by removing event listener
+        cards[firstChoice].removeEventListener("click", selectedCard);
+        cards[secondChoice].removeEventListener("click", selectedCard);
+
+        // adding to score count with .push()
+        matchingCards.push(cardsFlipped); // see A6.1
+
+        // t: test log scores
+        console.log("t: matchingCards = " + matchingCards.length);
+
+      } else {
+
+        // CASE 3
+        // switch chosen cards back to blank cards
+        cards[firstChoice].setAttribute("src", "assets/images/blank.png");
+        cards[secondChoice].setAttribute("src", "assets/images/blank.png");
+        gameAssistant.textContent = "Please try again";
+      }
+
+      cardsFlipped = []; // empty cards chosen array A5.2 for next game play
+      cardsFlippedId = []; // empty cards chosen id array A5.3 for next game play
+
+      // display SCORE COUNT
+      displayResult.textContent = matchingCards.length; // see A6.2
+
+      // END of level
+      // show modal assistant when all playing cards have been found
+      if (matchingCards.length === playingCards.length/2) {
+
+        // C) create modal view content
+        modalMsg1.textContent = "Congratulations! You found all cards.";
+        modalMsg2.textContent = "Level: " + currentLevel;
+        modalMsg3.textContent = "Total Score: " + matchingCards.length;
+        modalMsg4.textContent = "Turns: " + Math.round(countMoves); // show round numbers
+
+        // and show modal assistant
+        modalAssistant.style.display = "block";
+
+        // show different modal message by the end of level 3
+        if (currentLevel === 4) {
+          modalMsg1.textContent = "Congratulations! You Completed The Memory Game.";
+        }
+
+      }
+
+    }; // function evaluateCards() END
+
+
+
+    // A5) REGISTER AND RENDER selected cards
+    // function - to register and render selected cards
+    function selectedCard() {
+
+      // REGISTER selected card
+      // Added the attribute data-id to mark each card with a
+      // id number in step 4. 
+      // now storing the data-id attribute value of selected card
+      // in the variable cardId to make it usable for this function
+      const cardId = this.getAttribute("data-id"); 
+
+      // using .push() method to push cards image name to
+      // cardsFlipped array, created in step A5.2
+      cardsFlipped.push(playingCards[cardId].name); 
+      // ISSUE: player can add more than 2 cards when 
+      // clicking fast enough over multiple cards
+      // FIXED in B1 and B2
+
+      // using .push() method to push cards data-id to
+      // cardsFlippedId array, created in step A5.3
+      cardsFlippedId.push(cardId);
+
+      // RENDER the selected card
+      this.setAttribute("src", playingCards[cardId].img);
+      // this changes the image tag 
+      // from: <img src="assets/images/blank.png" data-id="0">
+      // to: <img src="assets/images/card1.png" data-id="0">
+
+      // t: test log registered cards
+      console.log("t: Selected card name = " + cardsFlipped);
+      console.log("t: Selected card id = " + cardsFlippedId);
+      console.log("t: Selected card total = " + cardsFlipped.length);
+
+      // EVALUATE and get GAME RESULTS with evaluateCards() function
+      // if 2 cards have been chosen, evaluate cards with setTimeout
+      if (cardsFlippedId.length === 2) {
+
+        // B1) FIXED: preventing double click to select the same card twice
+        if (cardsFlippedId[0] === cardsFlippedId[1]) {
+          gameAssistant.textContent = "You picked the same card. Choose another one!";
+          cardsFlippedId.pop(); // delete last array item which in this case is a double entry
+          cardsFlipped.pop(); // delete last array item which in this case is a double entry
+          return;
+        } 
+        setTimeout(evaluateCards, 500)
+
+      }
+
+
+      // C) COUNT MOVES feature 
+      // count plus 0.5 for every move in countMoves, counting 2 moves as one turn
+      countMoves = countMoves + 0.5;
+      // display moves in the header above game layout
+      moves.textContent = Math.round(countMoves); // show round numbers only
+
+    }; // function selectedCard() END
+
+    // A4.1)
+    createGameLayout();
+
+  } // function loadGame() END
+
+}); // function(event) END

@@ -1,3 +1,4 @@
+/* wrapper for moves, level and score */
 .stats {
   display: flex;
   flex-direction: row;
@@ -7,16 +8,18 @@
   margin-left: auto;
 }
 
-/* Score count */
+/* moves, level and score count */
 h3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
   height: 20px;
-  padding: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #F0793E;
 }
 
-/* Deck of cards */
+/* deck of cards */
 .board {
   display: flex;
   flex-wrap: wrap;
@@ -26,13 +29,13 @@ h3 {
   margin-left: auto;
 }
 
-/* Images created in js */
+/* images created in js - playingCards */
 img {
   width: 100px;
   height: auto;
 }
 
-/* Reset button */
+/* reset button */
 .reset {
   display: flex;
   flex-direction: row;
@@ -42,14 +45,14 @@ img {
   height: 100px;
 }
 
-/* Footer content */
+/* footer content */
 .footer-content {
   display: flex;
   justify-content: center;
 }
 
-/* Modal assistant */
-.modal {
+/* modal GAME PLAY assistant */
+.modal-view-assistant {
   display: none;
   position: fixed;
   z-index: 1;
@@ -63,32 +66,36 @@ img {
   background-color: rgba(0,0,0,0.4);
 }
 
-/* Modal assistant content */
-.modal-assistant {
+/* modal assistant */
+.modal-content-wrapper {
   background-color: #fefefe;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  max-width: 400px;
 }
 
-/* Modal assistant close button */
-.close-modal {
+/* modal assistant close button */
+.close-modal,
+.close-modal-preview {
   color: #aaaaaa;
   float: right;
   font-size: 28px;
   font-weight: bold;
 }
 
-/* Modal assistant close button hover */
+/* modal assistant close button hover */
 .close-modal:hover,
-.close-modal:focus {
+.close-modal:focus,
+.close-modal-preview:hover,
+.close-modal-preview:focus {
   color: #000;
   text-decoration: none;
   cursor: pointer;
 }
 
-/* Modal stats */
+/* modal stats */
 .modal-stats {
   display: flex;
   flex-direction: column;
@@ -99,9 +106,59 @@ img {
   margin-bottom: 50px;
 }
 
-/* Modal button wrap */
+/* modal message top */
+.modal-stats>p {
+  text-align: center;
+}
+
+/* modal button wrap */
 .modal-button-wrap {
   display: flex;
   justify-content: space-between;
   margin: 20px;
+}
+
+/* modal cards PREVIEW */
+.modal-preview-assistant {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 50px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4);
+}
+
+.modal-preview-wrapper {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 400px;
+}
+
+.modal-preview {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  width: 400px;
+  height: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.modal-preview-button-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px;
+}
+
+span.footer-text {
+  color:#719DB2;
 }
