@@ -5,97 +5,82 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memory Game</title>
+  <!-- files required -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css">
   <script src="assets/js/app.js" type="text/javascript"></script>
+  <!-- animation files -->
+  <!-- anime.js library -->
+  <script src="assets/js/animation.js" type="text/javascript"></script>
+  <title>Memory Game</title>
 </head>
 
 <body>
   <header>
-    <!-- game ALERTS assistant -->
-    <h3><span id="game-assistant"></span></h3>
-
-    <!-- C) modal GAME PLAY assistant -->
-    <div id="modal-view" class="modal-view-assistant">
-      <div class="modal-content-wrapper">
-        <span class="close-modal">x</span>
-        <div class="modal-stats">
-          <p><span id="modal-msg-1"></span></p>
-          <p><span id="modal-msg-2"></span></p>
-          <p><span id="modal-msg-3"></span></p>
-          <p><span id="modal-msg-4"></span></p>
-        </div>
-        <div class="modal-button-wrap">
-          <button id="optionReset" type="button" value="Reload Page"
-            onClick="window.location.reload(true)">Restart</button>
-          <button id="modal-btn-option"></button>
-        </div>
+    <div class="header-wrapper">
+      <!-- game ALERTS assistant -->
+      <div class="game-alerts">
+        <h3><span id="game-assistant"></span></h3>
+      </div>
+      <!-- stats -->
+      <div class="stats">
+        <h3>Moves:<span id="moves"></span></h3>
+        <h3>Level:<span id="level"></span></h3>
+        <h3>Score:<span id="result"></span></h3>
       </div>
     </div>
-
-    <!-- stats -->
-    <div class="stats">
-      <h3>Moves:<span id="moves"></span></h3>
-      <h3>Level:<span id="level"></span></h3>
-      <h3>Score:<span id="result"></span></h3>
-    </div>
+    <nav>
+      <!-- C) modal GAME PLAY assistant -->
+      <div id="modal-view" class="modal-view-assistant">
+        <div class="modal-content-wrapper">
+          <div class="modal-stats">
+            <p><span id="modal-msg-1"></span></p>
+            <p><span id="modal-msg-2"></span></p>
+            <p><span id="modal-msg-3"></span></p>
+            <p><span id="modal-msg-4"></span></p>
+            <p><span id="modal-msg-5"></span></p>
+          </div>
+          <div class="modal-button-wrap">
+            <button id="modal-btn-option"></button>
+          </div>
+        </div>
+      </div>
+      <!-- C) modal GAME PREVIEW assistant -->
+      <div id="modal-preview" class="modal-preview-assistant">
+        <div class="modal-preview-wrapper">
+          <div class="modal-preview"></div>
+          <div class="modal-preview-footer">
+            <div id="modal-preview-text">
+              <p><span id="modal-preview-msg-1"></span></p>
+            </div>
+            <div class="modal-preview-button-wrap">
+              <button id="modal-preview-btn-option"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
   </header>
   <main>
-
-    <!-- C) modal GAME PREVIEW assistant -->
-    <div id="modal-preview" class="modal-preview-assistant">
-      <div class="modal-preview-wrapper">
-        <!-- <span class="close-modal-preview">x</span> -->
-        <div class="modal-preview"></div>
-        <div class="modal-preview-button-wrap">
-          <button id="modal-preview-btn-option"></button>
-        </div>
-      </div>
-    </div>
-
-    <!-- deck of cards - playingCards -->
-    <div class="board"></div>
-
-    <!-- reset game -->
-    <div class="reset">
-      <button id="reset" type="button" value="Reload Page" onClick="window.location.reload(true)">Restart Game</button>
-      <!-- Open modal assistant test button -->
-      <!-- <button id="openModal">Open Modal</button> -->
-      <!-- Open modal preview test button -->
-      <!-- <button id="openModalPreview">Open Peview</button> -->
+    <div class="game-wrapper">
+      <!-- PLAYING CARDS - deck of cards  -->
+      <div class="board"></div>
     </div>
   </main>
   <footer>
-    <div class="footer-content">
-      <span class="footer-text">Find out more about <a href="https://en.wikipedia.org/wiki/Eidetic_memory"
-          target="_blank">Eidetic memory</a>.</span>
+    <div class="footer-wrapper">
+      <div class="footer-content">
+        <!-- RESET page -->
+        <div class="reset">
+          <button id="reset" type="button" value="Reload Page" onClick="window.location.reload(true)">Reset
+            Game</button>
+        </div>
+        <div class="footer-links">
+          <span class="footer-text">Find out more about <a href="https://en.wikipedia.org/wiki/Eidetic_memory"
+              target="_blank">Eidetic memory</a>.</span>
+        </div>
+      </div>
     </div>
   </footer>
-  <script>
-
-    var modal = document.getElementById("modal-view");
-    var modalPreview = document.getElementById("modal-preview");
-
-    var btn = document.getElementById("openModal");
-    var btnPreview = document.getElementById("openModalPreview");
-
-    var span = document.getElementsByClassName("close-modal")[0];
-    // var spanPreview = document.getElementsByClassName("close-modal-preview")[0];
-
-    btn.onclick = function () {
-      modal.style.display = "block";
-    }
-    btnPreview.onclick = function () {
-      modalPreview.style.display = "block";
-    }
-
-    span.onclick = function () {
-      modal.style.display = "none";
-    }
-    spanPreview.onclick = function () {
-      modalPreview.style.display = "none";
-    }
-  </script>
 </body>
 
 </html>

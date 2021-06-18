@@ -1,5 +1,6 @@
 /*
 Memory Game - Comments Structure
+------------------------------------------------------------
 A) Bare minimum code to get a playable result
 A1.2) Numbers after the letter refer to the order I wrote this script 
 B) Fixes to make the game more stable and prevent obvious bugs
@@ -11,14 +12,20 @@ t) testing stuff
 // t: test if index.html loads app.js file
 console.log("t1: Link from app.js to index.html established: Ok");
 
+
+
 // A1)
-// load this "Memory Game" when DOM content is loaded
+/* load this "Memory Game" when DOM content is loaded
+------------------------------------------------------------ */
 document.addEventListener('DOMContentLoaded', function(event) {
 
   // t: test if event listener works to check if DOM is loaded
   console.log("t2: The Dom has loaded: Ok");
 
-  // A) VARIABLES general
+
+
+  /* A) VARIABLES general
+  ------------------------------------------------------------ */
   let board = document.querySelector(".board"); // A3.1) shows playing cards
   let displayResult = document.querySelector("#result"); // A3.2) shows score
   let gameAssistant = document.querySelector("#game-assistant"); // A8) shows game alerts
@@ -31,11 +38,13 @@ document.addEventListener('DOMContentLoaded', function(event) {
   let modalMsg2 = document.querySelector("#modal-msg-2"); // C) shows modal content 2
   let modalMsg3 = document.querySelector("#modal-msg-3"); // C) shows modal content 3
   let modalMsg4 = document.querySelector("#modal-msg-4"); // C) shows modal content 4
+  let modalMsg5 = document.querySelector("#modal-msg-5"); // C) shows modal content 5
   let modalBtnOption = document.querySelector("#modal-btn-option"); // C) Modal view button
 
   // C) variables - modal preview for photographic-memory game play
   let modalPreviewAssistant = document.querySelector(".modal-preview-assistant"); // C) to show/hide modal view
   let modalPreview = document.querySelector(".modal-preview"); // C) shows card preview
+  let modalPreviewMsg1 = document.querySelector("#modal-preview-msg-1"); // C) shows preview message
   let modalPreviewBtnOption = document.querySelector("#modal-preview-btn-option"); // C) Modal view button
 
   let playingCards = []; // A2) store playing cards
@@ -47,13 +56,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-  // C) MODAL VIEW game assistant and level creator
+  /* C) MODAL VIEW game assistant and level creator
+  ------------------------------------------------------------ */
   modalAssistant.style.display = "block"; // show modal view
-  modalMsg1.textContent = "Is a photographic memory a real thing?"; // show teaser
-  modalMsg2.textContent = "Play this memory game and find out!"; // intro
-  modalMsg3.textContent = "Memorize the letter pairs, locations and colors"; // how to
-  modalMsg4.textContent = "when you're ready hit the challenge button"; // how to
-  modalBtnOption.textContent = "Let's Play"; // optional button text
+  modalMsg2.textContent = "Is a photographic memory a real thing?"; // show teaser
+  modalMsg3.textContent = "Play this memory game and find out!"; // intro
+  modalBtnOption.textContent = "Let's Play"; // set button text
   modalBtnOption.addEventListener("click", levelOption); // calls levelOption function
 
   // function - to clear current game stats
@@ -100,7 +108,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-  // C) function - game play
+  /* C) function - game play
+  ------------------------------------------------------------ */
   function loadGame() {
 
     // A2) PLAYING CARDS for level 1-3
@@ -141,7 +150,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
     ];
 
 
-    // C) CARD OPTIONS depending on game level
+
+    /* C) CARD OPTIONS depending on game level
+    ------------------------------------------------------------ */
     // merging cardPack's arrays with .concat()
     if (currentLevel === 1) {
       playingCards = cardPackOne;
@@ -161,18 +172,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-    // C) function - that allows player to preview card set
+    /* C) MODAL PREVIEW CARDS
+    ------------------------------------------------------------ */
+    // C) function - that shows preview of card set
     function getCardPreview() {
 
       for (let i = 0; i < playingCards.length; i++) {
 
-        let preview = playingCards[i].img; // store image path
-        let cardPreview = document.createElement("img"); // create html img element
-        cardPreview.setAttribute("src", preview); // set src attribute with image path
+        let preview = playingCards[i].img; // store path of img
+        let cardPreview = document.createElement("img"); // create, store html img element
+        cardPreview.setAttribute("src", preview); // set src attribute to stored image path
         modalPreview.appendChild(cardPreview); // .append() images to modal preview
       }
+      modalPreviewMsg1.textContent = "Memorize letter pairs, locations and colors."; // how to text
       modalPreviewBtnOption.textContent = "Challenge Your Memory"; // set button text
-      modalPreviewBtnOption.addEventListener("click", closeCardPreview); // set event listener
+      modalPreviewBtnOption.addEventListener("click", closeCardPreview); // call closeCardPreview()
     }
 
     getCardPreview(); // execute function
@@ -184,7 +198,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-    // A4) GAME LAYOUT
+    /* A4) GAME LAYOUT
+    ------------------------------------------------------------ */
     // create deck of cards by looping through playingCards
     // this function is executed at step A4.1 at the end
     function createGameLayout() {
@@ -233,7 +248,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-    // A6) GAME RESULTS and evaluation of flipped cards
+    /* A6) GAME RESULTS and evaluation of flipped cards
+    ------------------------------------------------------------ */
     function evaluateCards() {
 
       // store all card images in (var) cards
@@ -245,7 +261,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
       const thirdChoice = cardsFlippedId[2];  // set 3rd value of cardsFlippedId
       // the 3rd value is reserved for the case of too many clicks within 500ms
 
-      // CASE 1
+
+      /* ERASE tripple or more entries
+      ------------------------------ */
       // B) FIXED: if user/player manages to choose more than 2 cards within 500ms
       if (cardsFlippedId.length > 2) {
         cardsFlipped.pop(); // delete last array item which in this case is a third entry
@@ -253,12 +271,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
         cards[thirdChoice].setAttribute("src", "assets/images/blank.png"); // resets the third card
       }
 
-      // CASE 2
+
+      /* CASE 1 - It's a match
+      ------------------------------ */
       // comparing card names
       if (cardsFlipped[0] === cardsFlipped[1]) {
-        gameAssistant.textContent = "You found a match!";
+        gameAssistant.textContent = "It's a match!";
 
-        // B2) FIXED: repeatable clicks on already selected cards by removing event listener
+        // avoid repeatable clicks
+        // B2) FIXED: remove event listener on already selected cards
         cards[firstChoice].removeEventListener("click", selectedCard);
         cards[secondChoice].removeEventListener("click", selectedCard);
 
@@ -270,20 +291,26 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
       } else {
 
-        // CASE 3
+
+        /* CASE 2 - It's not a match
+        ------------------------------ */
         // switch chosen cards back to blank cards
         cards[firstChoice].setAttribute("src", "assets/images/blank.png");
         cards[secondChoice].setAttribute("src", "assets/images/blank.png");
         gameAssistant.textContent = "Please try again";
       }
 
-      cardsFlipped = []; // empty cards chosen array A5.2 for next game play
-      cardsFlippedId = []; // empty cards chosen id array A5.3 for next game play
 
       // display SCORE COUNT
       displayResult.textContent = matchingCards.length; // see A6.2
 
-      // END of level
+      // CLEAR cards stored
+      cardsFlipped = []; // empty cards chosen array A5.2 for next game play
+      cardsFlippedId = []; // empty cards chosen id array A5.3 for next game play
+
+
+      /* END of each level
+      ------------------------------ */
       // show modal assistant when all playing cards have been found
       if (matchingCards.length === playingCards.length/2) {
 
@@ -293,12 +320,27 @@ document.addEventListener('DOMContentLoaded', function(event) {
         modalMsg3.textContent = "Total Score: " + matchingCards.length;
         modalMsg4.textContent = "Turns: " + Math.round(countMoves); // show round numbers
 
+        // clear game assistant
+        gameAssistant.textContent = "";
+
         // and show modal assistant
         modalAssistant.style.display = "block";
+        
 
-        // show different modal message by the end of level 3
+        /* END of game
+        ------------------------------ */
+        // change modal message by the end of level 4
         if (currentLevel === 4) {
+
           modalMsg1.textContent = "Congratulations! You Completed The Memory Game.";
+
+          // show link for more info
+          modalMsg5.textContent = "Find out more about "; // text before link
+          let linkTo = document.createElement("a"); // create anchor element
+          linkTo.setAttribute("href", "https://en.wikipedia.org/wiki/Eidetic_memory"); // set link address
+          linkTo.setAttribute("target", "_blank"); // set target _blank
+          linkTo.innerText = "Eidetic memory"; // set link
+          modalMsg5.appendChild(linkTo); // append() to message
         }
 
       }
@@ -307,7 +349,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
 
-    // A5) REGISTER AND RENDER selected cards
+    /* A5) REGISTER AND RENDER selected cards
+    ------------------------------------------------------------ */
     // function - to register and render selected cards
     function selectedCard() {
 
@@ -346,7 +389,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
         // B1) FIXED: preventing double click to select the same card twice
         if (cardsFlippedId[0] === cardsFlippedId[1]) {
-          gameAssistant.textContent = "You picked the same card. Choose another one!";
+          gameAssistant.textContent = "Choose another one!";
           cardsFlippedId.pop(); // delete last array item which in this case is a double entry
           cardsFlipped.pop(); // delete last array item which in this case is a double entry
           return;
@@ -356,7 +399,8 @@ document.addEventListener('DOMContentLoaded', function(event) {
       }
 
 
-      // C) COUNT MOVES feature 
+      /* C) COUNT MOVES feature 
+      ------------------------------------------------------------ */
       // count plus 0.5 for every move in countMoves, counting 2 moves as one turn
       countMoves = countMoves + 0.5;
       // display moves in the header above game layout
