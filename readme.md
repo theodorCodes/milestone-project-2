@@ -80,3 +80,10 @@ Gameplay: If clicking fast enough player can select multiple cards that exceeds 
 # Polishing Gameplay
 
 Adding the feature to count moves for each step as 0.5 and used Math.round() to display only round numbers for the player. 
+
+
+# Credits
+Ania Kubów on how to show how to create a simple memory game with pure JavaScript, DEV link here.
+Dev Ed - on how to make simple CSS animation such as flip cards in the 'CSS Flip Card Tutorial' video.
+A lot of hours searching for solutions at Google.com
+And for the solutions found mostly on stackoverflow.com.

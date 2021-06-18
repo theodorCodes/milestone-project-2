@@ -1,6 +1,6 @@
 /*
 Memory Game - Comments Structure
-------------------------------------------------------------
+-------------------------------------------------------------
 A) Bare minimum code to get a playable result
 A1.2) Numbers after the letter refer to the order I wrote this script 
 B) Fixes to make the game more stable and prevent obvious bugs
@@ -16,8 +16,8 @@ console.log("t1: Link from app.js to index.html established: Ok");
 
 // A1)
 /* load this "Memory Game" when DOM content is loaded
------------------------------------------------------------- */
-document.addEventListener('DOMContentLoaded', function(event) {
+------------------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', function() {
 
   // t: test if event listener works to check if DOM is loaded
   console.log("t2: The Dom has loaded: Ok");
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
   /* A) VARIABLES general
-  ------------------------------------------------------------ */
+  ------------------------------------------------------------- */
   let board = document.querySelector(".board"); // A3.1) shows playing cards
   let displayResult = document.querySelector("#result"); // A3.2) shows score
   let gameAssistant = document.querySelector("#game-assistant"); // A8) shows game alerts
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
   /* C) MODAL VIEW game assistant and level creator
-  ------------------------------------------------------------ */
+  ------------------------------------------------------------- */
   modalAssistant.style.display = "block"; // show modal view
   modalMsg2.textContent = "Is a photographic memory a real thing?"; // show teaser
   modalMsg3.textContent = "Play this memory game and find out!"; // intro
@@ -109,7 +109,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
   /* C) function - game play
-  ------------------------------------------------------------ */
+  ------------------------------------------------------------- */
   function loadGame() {
 
     // A2) PLAYING CARDS for level 1-3
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     /* C) CARD OPTIONS depending on game level
-    ------------------------------------------------------------ */
+    ------------------------------------------------------------- */
     // merging cardPack's arrays with .concat()
     if (currentLevel === 1) {
       playingCards = cardPackOne;
@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     /* C) MODAL PREVIEW CARDS
-    ------------------------------------------------------------ */
+    ------------------------------------------------------------- */
     // C) function - that shows preview of card set
     function getCardPreview() {
 
@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     /* A4) GAME LAYOUT
-    ------------------------------------------------------------ */
+    ------------------------------------------------------------- */
     // create deck of cards by looping through playingCards
     // this function is executed at step A4.1 at the end
     function createGameLayout() {
@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     /* A6) GAME RESULTS and evaluation of flipped cards
-    ------------------------------------------------------------ */
+    ------------------------------------------------------------- */
     function evaluateCards() {
 
       // store all card images in (var) cards
@@ -350,7 +350,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     /* A5) REGISTER AND RENDER selected cards
-    ------------------------------------------------------------ */
+    ------------------------------------------------------------- */
     // function - to register and render selected cards
     function selectedCard() {
 
@@ -372,7 +372,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
       // cardsFlippedId array, created in step A5.3
       cardsFlippedId.push(cardId);
 
-      // RENDER the selected card
+      // RENDER SELECTED card - action
       this.setAttribute("src", playingCards[cardId].img);
       // this changes the image tag 
       // from: <img src="assets/images/blank.png" data-id="0">
@@ -400,7 +400,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
       /* C) COUNT MOVES feature 
-      ------------------------------------------------------------ */
+      ------------------------------------------------------------- */
       // count plus 0.5 for every move in countMoves, counting 2 moves as one turn
       countMoves = countMoves + 0.5;
       // display moves in the header above game layout
