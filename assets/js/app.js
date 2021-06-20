@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
   ------------------------------------------------------------- */
   function loadGame() {
 
-    // A2) PLAYING CARDS for level 1-3
+    // A2) PLAYING CARDS
     // create array with objects of cards with image name
     // and path for each img . each card is repeated to create pairs
     // extend game by adding more images or image cardPacks
