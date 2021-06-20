@@ -34,7 +34,7 @@ An interactive memory game with a twist as part of Code Institute's milestone pr
 
 
 
-## Project
+### Project
 
 
 
@@ -58,7 +58,7 @@ As a user I expect a casual game to be **easy to understand** without any instru
 
 
 
-## Features
+### Features
 
 
 
@@ -83,11 +83,11 @@ The design of the current cards has **letters as motives** only and it would be 
 
 
 
-## Design
+### Design
 
 
 
-### Programming Approach
+#### Programming Approach
 
 ```
 # General approach
@@ -114,17 +114,17 @@ loadGame()
 
 
 
-### UX
+#### UX
 
 
 
-#### Design Choices
+##### Design Choices
 
 The navigation throughout the game is designed to be intuitive. To keep the design simple, the base colors are neutral and low profile while the playing cards are designed to spark entertainment and keep the eye busy and therefor focused on the cards. 
 
 
 
-#### Wireframes and Layout
+##### Wireframes and Layout
 
 The game layout is divided into three sections, a header, the main gaming area with a deck of cards and a footer section which is reserved for additional game related buttons such as settings or other information that might be important to the game. 
 
@@ -140,7 +140,7 @@ Each card has a default size of 100 * 100px but its implementation is responsive
 
 
 
-## Technologies Used
+### Technologies Used
 
 
 
@@ -253,13 +253,13 @@ The Lighthouse generated report for **Mobile** gave these result in the followin
 
 
 
-## Deployment
+### Deployment
 
 The repository of this project is stored at **GitHub** and the site is deployed as **GitHub page**. Please [Click here!](https://theodorcodes.github.io/milestone-project-2/) to visit the project site. As this application has no requirements other than the files itself and your browser, you could easily download the files and open the index.html file in your browser.
 
 
 
-## Credits
+### Credits
 
 This project is initiated by [Code Institute](https://codeinstitute.net/) to teach and mentor students on their journey to become a software developer.
 
