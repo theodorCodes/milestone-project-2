@@ -6,7 +6,7 @@ An interactive memory game with a twist as part of Code Institute's milestone pr
 
 
 
-## Table of Contents
+### Table of Contents
 
 -   Project 
     -   Project Introduction
@@ -34,23 +34,23 @@ An interactive memory game with a twist as part of Code Institute's milestone pr
 
 
 
-# Project
+## Project
 
 
 
-### Project Introduction
+#### Project Introduction
 
 As part of a student project of Code Institute, I chose to write a memory game to apply and use vanilla JavaScript with HTML and CSS without any frameworks. In this grid based memory game the user has to flip through a group of cards to find pairs that match with each other. When two cards are identical and match the user gains 1 point.
 
 
 
-### User Story and Goals
+#### User Story and Goals
 
 As a user I expect a casual game to be **easy to understand** without any instructions. It has to be **entertaining** or offer at least **some challenges to capture my mind**. Once I'm hooked up with the game it has to offer some **levels to keep me playing**. The layout and the design is somewhat important as it puts me into the mindset or **mood that I'm playing a game**.
 
 
 
-### Developer Story and Goals
+#### Developer Story and Goals
 
 **Hands-on experience** to apply and built something with JavaScript after going through a long process of learning the ins and outs of this language. A game that looks and works flawlessly. **Implementation of features**, **run test** and gain **valuable experience** and problem-solving **practice**.
 
@@ -58,11 +58,11 @@ As a user I expect a casual game to be **easy to understand** without any instru
 
 
 
-# Features
+## Features
 
 
 
-### Planned Features
+#### Planned Features
 
 The traditional memory game play is fairly easy and all you have to do is to **flip the cards** and **find matching pairs**. To add some features, this game consist of **4 levels** and you can get to the next level once you have found all pairs from the current level. As the level increases **you are challenged to find more cards**. 
 As this excercise is about interactivity the game is designed to guide the user throughout the game. When the website launches, a modal view is presented to invite the user to start the game. 
@@ -71,23 +71,23 @@ A modal view appears at the end of each level to notify the user about the game 
 
 
 
-### Features Implemented
+#### Features Implemented
 
 Starting from the top of the game layout, the header has a **game assistant**, which adds to the interactivity of the game play and notifies the user of the moves made such as "You found a match" or "Try again" in case the cards do not match. Right under the game assistant is the **game stats** area where the user can see the **current level**, **moves made** and **score** which updates instantly once the user has found a pair of cards. The main area features the **playing cards**, which will be shuffled or **randomised** for each game play and **increases** as the user moves up to the next level. The footer area has a **reset button** which acts as a rescue button in case a user may want to restart the game without finishing a level. Another important feature that has been implemented are two modal views. The first modal view, "**the modal game assistant**", introduces the user to the game in the beginning and pops up after the end of each level to display the game stats and to **lead the user to the next level**. The second modal view, "**the game preview**", is where the cards are presented to the user in the same order as they are going to be played. The user gets enough time to memorise the cards, their position and colors and can choose when to start the game. At the end of the game, although not important for the game play itself, the user will be invited to click a link to read more about what this game is all about or to play all over again.
 
 
 
-### Features Left to Implement
+#### Features Left to Implement
 
 The design of the current cards has **letters as motives** only and it would be interesting to test if the level of difficulty to memorise will increase or decrease depending on motives such as **numbers**, **geometrical shapes** or other **special characters**. As this is a game, the level of entertainment would improve by adding more animations at the right places.
 
 
 
-# Design
+## Design
 
 
 
-## Programming Approach
+### Programming Approach
 
 ```
 # General approach
@@ -114,17 +114,17 @@ loadGame()
 
 
 
-## UX
+### UX
 
 
 
-### Design Choices
+#### Design Choices
 
 The navigation throughout the game is designed to be intuitive. To keep the design simple, the base colors are neutral and low profile while the playing cards are designed to spark entertainment and keep the eye busy and therefor focused on the cards. 
 
 
 
-### Wireframes and Layout
+#### Wireframes and Layout
 
 The game layout is divided into three sections, a header, the main gaming area with a deck of cards and a footer section which is reserved for additional game related buttons such as settings or other information that might be important to the game. 
 
@@ -140,7 +140,7 @@ Each card has a default size of 100 * 100px but its implementation is responsive
 
 
 
-# Technologies Used
+## Technologies Used
 
 
 
@@ -148,11 +148,11 @@ This project is written in **HTML**, **CSS** and **JavaScript**. All of the cust
 
 
 
-# Testing
+### Testing
 
 
 
-### HTML
+#### HTML
 
 The **HTML** code has been validated by direct input in the [W3C validator](https://validator.w3.org/) and resulted in the following warning:
 
@@ -172,14 +172,14 @@ The two issues have been resolved and the respond was positive: **Document check
 
 
 
-### CSS
+#### CSS
 
 The **CSS** code has been validated by direct input in the [W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/) and the respond of the validator has been positive:
 W3C CSS Validator results for TextArea (CSS level 3 + SVG): **Congratulations! No Error Found.**
 
 
 
-### JavaScript
+#### JavaScript
 
 To debug JavaScript the Chrome browser has been used extensively. `console.log()` and `console.table()` were my favorite tools to see if outputs were logged as expected. Here are the bugs I encountered:
 
@@ -218,7 +218,7 @@ app.js:120: selectedCard(); # this was the problem as the function was was not f
 
 
 
-### Game play issues
+#### Game play issues
 
 To create a smooth game play experience I had to iron out some unexpected behaviour that are not really coding bugs but game play bugs:
 
@@ -231,7 +231,7 @@ To create a smooth game play experience I had to iron out some unexpected behavi
 
 
 
-### Testing Performance with Lighthouse
+#### Testing Performance with Lighthouse
 
 **Google Chrome's Developer Tools** are used extensively for debugging as well as the built-in **Lighthouse** project to test the performance of this application. The responsive design has been tested using **Google Chrome's responsive feature** that emulates screen sizes of various mobile devices. Further testing has been conducted through available devices such as MacBook Pro 13", iPad 12" and iPhone 8. 
 
@@ -253,13 +253,13 @@ The Lighthouse generated report for **Mobile** gave these result in the followin
 
 
 
-# Deployment
+## Deployment
 
 The repository of this project is stored at **GitHub** and the site is deployed as **GitHub page**. Please [Click here!](https://theodorcodes.github.io/milestone-project-2/) to visit the project site. As this application has no requirements other than the files itself and your browser, you could easily download the files and open the index.html file in your browser.
 
 
 
-# Credits
+## Credits
 
 This project is initiated by [Code Institute](https://codeinstitute.net/) to teach and mentor students on their journey to become a software developer.
 
