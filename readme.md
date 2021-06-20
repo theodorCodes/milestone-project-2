@@ -1,6 +1,6 @@
 *Not the traditional memory game. It helps to find out if we have the capability to memorise images in detail. Instead of flipping cards to find pairs you will be presented with a preview of available cards before you start the traditional memory game. It aims to answer the question if we have an eidetic or photographic memory.*
 
-An interactive memory game with a twist as part of Code Institute's milestone project 2. You can visit the page and play the game right [here!](https://theodorcodes.github.io/milestone-project-1/) 
+An interactive memory game with a twist as part of Code Institute's milestone project 2. You can visit the page and play the game right [here!](https://theodorcodes.github.io/milestone-project-2/) 
 
 ![ms2-ui-2-mockup](/assets/images/ms2-ui-2-mockup.png)
 
@@ -36,7 +36,7 @@ An interactive memory game with a twist as part of Code Institute's milestone pr
 
 # Project
 
----
+
 
 ### Project Introduction
 
@@ -54,13 +54,13 @@ As a user I expect a casual game to be **easy to understand** without any instru
 
 **Hands-on experience** to apply and built something with JavaScript after going through a long process of learning the ins and outs of this language. A game that looks and works flawlessly. **Implementation of features**, **run test** and gain **valuable experience** and problem-solving **practice**.
 
-*In the beginning of this project I thought about a traditional memory game where you flip the cards one by one, and collect the cards once you have found a matching pair. While doing a little bit of research about why it is challenging to play this game, I found out that we actually do not have an eidetic or photographic memory (please see link in the [memory game](https://theodorcodes.github.io/milestone-project-1/)). Therefor the idea of creating "a game to train your memory" has changed into a game to demonstrate how hard it actually is to recall an image in detail.*
+*In the beginning of this project I thought about a traditional memory game where you flip the cards one by one, and collect the cards once you have found a matching pair. While doing a little bit of research about why it is challenging to play this game, I found out that we actually do not have an eidetic or photographic memory (please see link in the [memory game](https://theodorcodes.github.io/milestone-project-2/)). Therefor the idea of creating "a game to train your memory" has changed into a game to demonstrate how hard it actually is to recall an image in detail.*
 
 
 
 # Features
 
----
+
 
 ### Planned Features
 
@@ -85,7 +85,7 @@ The design of the current cards has **letters as motives** only and it would be 
 
 # Design
 
----
+
 
 ## Programming Approach
 
@@ -116,7 +116,7 @@ loadGame()
 
 ## UX
 
----
+
 
 ### Design Choices
 
@@ -142,7 +142,7 @@ Each card has a default size of 100 * 100px but its implementation is responsive
 
 # Technologies Used
 
----
+
 
 This project is written in **HTML**, **CSS** and **JavaScript**. All of the custom code is written with the **Visual Studio Code** editor on a personal **Mac** computer. This project uses **Git** for version control and is stored as a public repository at **GitHub**. The gaming cards as well as the images you see in this Readme file are produced in **Sketch**.
 
@@ -150,7 +150,7 @@ This project is written in **HTML**, **CSS** and **JavaScript**. All of the cust
 
 # Testing
 
----
+
 
 ### HTML
 
@@ -161,7 +161,7 @@ To fix this issue I have simply deleted the `type` attribute:
 From: `<script src="assets/js/app.js" type="text/javascript"></script>`
 To: `<script src="assets/js/app.js"></script>`
 
----
+
 
 Warning 2: **Empty heading.**
 To fix this issue I have changed the `h3` tag: 
@@ -170,14 +170,14 @@ To: `<p><span id="game-assistant"></span></p>`
 
 The two issues have been resolved and the respond was positive: **Document checking completed. No errors or warnings to show.**
 
----
+
 
 ### CSS
 
 The **CSS** code has been validated by direct input in the [W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/) and the respond of the validator has been positive:
 W3C CSS Validator results for TextArea (CSS level 3 + SVG): **Congratulations! No Error Found.**
 
----
+
 
 ### JavaScript
 
@@ -227,7 +227,7 @@ To create a smooth game play experience I had to iron out some unexpected behavi
 -   **Issue 2:** Clicking multiple times on the same card was an issue as well and resulted in undesired results in the game play.
     -   **Solution:** To solve this issue I removed the event listener on already selected cards.
 
----
+
 
 
 
@@ -249,13 +249,13 @@ The Lighthouse generated report for **Mobile** gave these result in the followin
 -   Best Practices: 100
 -   SEO: 91 - Explanation: Document does not have a meta description
 
----
+
 
 
 
 # Deployment
 
-The repository of this project is stored at **GitHub** and the site is deployed as **GitHub page**. Please [Click here!](https://theodorcodes.github.io/milestone-project-1/) to visit the project site. As this application has no requirements other than the files itself and your browser, you could easily download the files and open the index.html file in your browser.
+The repository of this project is stored at **GitHub** and the site is deployed as **GitHub page**. Please [Click here!](https://theodorcodes.github.io/milestone-project-2/) to visit the project site. As this application has no requirements other than the files itself and your browser, you could easily download the files and open the index.html file in your browser.
 
 
 
