@@ -1,12 +1,12 @@
 /*
 Memory Game - Comments Structure
--------------------------------------------------------------
+Numbers such as A1.2) after the letter refer to the order I wrote this script 
+
 A) Bare minimum code to get a playable result
-A1.2) Numbers after the letter refer to the order I wrote this script 
-B) Fixes to make the game more stable and prevent obvious bugs
+B) Fixes to make the game more stable and prevent game play bugs
 C) More features and additional levels
-D) Styling and animation
 t) testing stuff
+
 */
 
 // t: test if index.html loads app.js file
@@ -14,7 +14,7 @@ console.log("t1: Link from app.js to index.html established: Ok");
 
 
 
-// A1)
+// A)
 /* load this "Memory Game" when DOM content is loaded
 ------------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', function() {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-  /* A) VARIABLES general
+  /* VARIABLES
   ------------------------------------------------------------- */
   let board = document.querySelector(".board"); // A3.1) shows playing cards
   let displayResult = document.querySelector("#result"); // A3.2) shows score
@@ -101,6 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
       currentLevel = 1;
       playingCards = []; // empty playing cards when game completed
       clearBoard();
+      modalPreviewAssistant.style.display = "block";
       modalBtnOption.textContent = "Next Level";
     }
 
@@ -169,6 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // t: test if array prints to console
     console.log("t3: Current playingCards array: " + playingCards[0] + " Ok");
+    console.table(playingCards);
 
 
 
@@ -182,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function() {
         let preview = playingCards[i].img; // store path of img
         let cardPreview = document.createElement("img"); // create, store html img element
         cardPreview.setAttribute("src", preview); // set src attribute to stored image path
+        cardPreview.setAttribute("alt", "playingcard"); // set alt attribute
         modalPreview.appendChild(cardPreview); // .append() images to modal preview
       }
       modalPreviewMsg1.textContent = "Memorize letter pairs, locations and colors."; // how to text
@@ -225,6 +228,9 @@ document.addEventListener('DOMContentLoaded', function() {
         // with the value of the current loop number (i)
         card.setAttribute("data-id", i);
 
+        // set alt attribute for image
+        card.setAttribute("alt", "playingcard");
+
         // adding an event listener to check for clicks on each card
         // which calls the function 'selectedCard', see REGISTER AND RENDER A5
         card.addEventListener("click", selectedCard);
@@ -244,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
       } // END of loop
 
-    }; // function createGameLayout() END
+    } // function createGameLayout() END
 
 
 
@@ -320,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
         modalMsg3.textContent = "Total Score: " + matchingCards.length;
         modalMsg4.textContent = "Turns: " + Math.round(countMoves); // show round numbers
 
-        // clear game assistant
+        // clear game assistant in the header
         gameAssistant.textContent = "";
 
         // and show modal assistant
@@ -339,13 +345,14 @@ document.addEventListener('DOMContentLoaded', function() {
           let linkTo = document.createElement("a"); // create anchor element
           linkTo.setAttribute("href", "https://en.wikipedia.org/wiki/Eidetic_memory"); // set link address
           linkTo.setAttribute("target", "_blank"); // set target _blank
+          linkTo.setAttribute("rel", "noopener"); // set noopener for security
           linkTo.innerText = "Eidetic memory"; // set link
           modalMsg5.appendChild(linkTo); // append() to message
         }
 
       }
 
-    }; // function evaluateCards() END
+    } // function evaluateCards() END
 
 
 
@@ -394,7 +401,7 @@ document.addEventListener('DOMContentLoaded', function() {
           cardsFlipped.pop(); // delete last array item which in this case is a double entry
           return;
         } 
-        setTimeout(evaluateCards, 500)
+        setTimeout(evaluateCards, 500);
 
       }
 
@@ -406,7 +413,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // display moves in the header above game layout
       moves.textContent = Math.round(countMoves); // show round numbers only
 
-    }; // function selectedCard() END
+    } // function selectedCard() END
 
     // A4.1)
     createGameLayout();
