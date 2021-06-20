@@ -2,7 +2,7 @@
 
 An interactive memory game with a twist as part of Code Institute's milestone project 2. You can visit the page and play the game right [here!](https://theodorcodes.github.io/milestone-project-1/) 
 
-![ms2-ui-2-mockup](/Users/lp1/Documents/__e_Code_Institute/ci-milestone-project-2/www/assets/images/ms2-ui-2-mockup.png)
+![ms2-ui-2-mockup](/assets/images/ms2-ui-2-mockup.png)
 
 
 
@@ -128,15 +128,15 @@ The navigation throughout the game is designed to be intuitive. To keep the desi
 
 The game layout is divided into three sections, a header, the main gaming area with a deck of cards and a footer section which is reserved for additional game related buttons such as settings or other information that might be important to the game. 
 
-![ms2-wireframe-1](/Users/lp1/Documents/__e_Code_Institute/ci-milestone-project-2/www/assets/images/ms2-wireframe-1.png)
+![ms2-wireframe-1](/assets/images/ms2-wireframe-1.png)
 
 The first level starts with 8 hidden cards and the user has to flip each card to find letter pairs. Once all cards have been discovered, the user can move on to the next level. Each additional level will add another row of cards. This game offers 4 levels and can display up to 20 cards in this layout with the given card size.  
 
-![ms2-layout-1](/Users/lp1/Documents/__e_Code_Institute/ci-milestone-project-2/www/assets/images/ms2-layout-1.png)
+![ms2-layout-1](/assets/images/ms2-layout-1.png)
 
 Each card has a default size of 100 * 100px but its implementation is responsive. In CSS the card width is `calc(94% / 4)` so that it looks the same on each device ranging from 320px up to any desktop width where the total width of the game area is limited. To create the contrast between the background and the playing cards, I chose to use earthy and calm colors for the background, while the playing cards are a combination of monochromatic color schemes of pink and purple. 
 
-![ms2-ui-1](/Users/lp1/Documents/__e_Code_Institute/ci-milestone-project-2/www/assets/images/ms2-ui-1.png)
+![ms2-ui-1](/assets/images/ms2-ui-1.png)
 
 
 
