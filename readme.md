@@ -241,14 +241,14 @@ To ensure a smooth game-playing experience, I had to iron out some unexpected be
 
 **Google Chrome's Developer Tools** are used extensively for debugging as well as the built-in **Lighthouse** project to test the performance of this application. The responsive design has been tested using **Google Chrome's responsive feature** that emulates the screen sizes of various mobile devices. Further testing has been conducted through available devices such as MacBook Pro 13", iPad 12" and iPhone 8.
 
-The Lighthouse generated report for **Desktop** gave these result in the following categories:
+When the Lighthouse generated a report for the **desktop** view, it produced the following results in the following categories:
 
 -   Performance: 100
 -   Accessibility: 100
 -   Best Practices: 100
 -   SEO: 89 - Explanation: Document does not have a meta description
 
-The Lighthouse generated report for **Mobile** gave these result in the following categories:
+When the Lighthouse generated a report for the **mobile** view, it produced the following results in the following categories:
 
 -   Performance: 99
 -   Accessibility: 100
