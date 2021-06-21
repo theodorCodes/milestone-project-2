@@ -26,6 +26,10 @@ body {
 }
 
 .footer-wrapper {
+  padding-top: 0;
+}
+
+.footer-wrapper {
   max-height: 120px;
 }
 
@@ -119,7 +123,7 @@ img {
 }
 
 .footer-links {
-  padding-bottom: 18px;
+  padding-bottom: 20px;
   text-align: center;
 }
 
@@ -344,7 +348,7 @@ span.footer-text {
 @media only screen and (max-width: 600px) {
 
   .game-wrapper {
-    min-height: calc(100vh - 220px)
+    min-height: calc(100vh - 215px)
   }
 
 }
