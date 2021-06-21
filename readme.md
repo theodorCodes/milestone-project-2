@@ -53,6 +53,8 @@ As a user, I expect a casual game to be **easy to understand** without any instr
 
 **Hands-on experience** of applying and building something with JavaScript after going through a long process of learning the ins and outs of this language. A game that looks and works flawlessly. **Implementation of features**, **running tests** and gaining **valuable experience** and problem-solving **practice**.
 
+[back to top](#table-of-contents)
+
 
 
 ## Features
@@ -86,6 +88,8 @@ Although not necessary for the game, at the end of the game, the user will be in
 ### Features Left to Implement
 
 The design of the current cards has letters as the only motive, and it would be interesting to test if the level of difficulty of memory will increase or decrease depending on motives such as **numbers**, **geometrical shapes** or other **special characters**. As this is a game, the level of entertainment would improve by adding **more animations** in the right places.
+
+[back to top](#table-of-contents)
 
 
 
@@ -140,6 +144,8 @@ Each card has a default size of 100 * 100px, but its implementation is responsiv
 
 ![ms2-ui-1](/assets/images/ms2-ui-1.png)
 
+[back to top](#table-of-contents)
+
 
 
 ## Technologies Used
@@ -147,6 +153,8 @@ Each card has a default size of 100 * 100px, but its implementation is responsiv
 
 
 This project is written in **HTML**, **CSS** and **JavaScript**. All of the custom code is written with the **Visual Studio Code** editor on a personal **Mac computer**. This project uses **Git** for version control and is stored as a public repository on **GitHub**. **Sketch** is used to create the gaming cards as well as the images in this README file.
+
+[back to top](#table-of-contents)
 
 
 
@@ -263,11 +271,15 @@ When the Lighthouse generated a report for the **mobile** view, it produced the 
 -   Best Practices: 100
 -   SEO: 91 - Explanation: Document does not have a meta description
 
+[back to top](#table-of-contents)
+
 
 
 ## Deployment
 
 The repository of this project is stored on **GitHub** and the site is deployed as a **GitHub page**. Please visit the project website by clicking [here!](https://theodorcodes.github.io/milestone-project-2/) As this application has no requirements other than the files itself and your browser, you could easily download the files and open the index.html file in your browser and it should work.
+
+[back to top](#table-of-contents)
 
 
 
@@ -276,3 +288,5 @@ The repository of this project is stored on **GitHub** and the site is deployed 
 The [Code Institute](https://codeinstitute.net/) initiated this project to teach and mentor students on their path to becoming software developers.
 
 A special thanks goes to [Ania Kubów](https://dev.to/ania_kubow/build-a-memory-game-in-vanilla-javascript-53l4), who demonstrates how to make a simple memory game using pure JavaScript for beginners. Her video on YouTube was very helpful in grasping the idea of which logic you can apply to create a memory game. And thanks to the Stack Overflow community in general, where I found a lot of answers to questions I had while working on this project.
+
+[back to top](#table-of-contents)
