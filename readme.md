@@ -25,7 +25,7 @@ An interactive memory game with a twist as part of the Code Institute's mileston
     -   [HTML on W3C Validator](#html-on-w3c-validator)
     -   [CSS on W3C Jigsaw Validator](#css-on-w3c-jigsaw-validator)
     -   [JavaScript and Chrome](#javascript-and-chrome)
-    -   [JavaScript and JS Hint](#javascript-and-js-hint)
+    -   [JavaScript and JSHint](#javascript-and-jshint)
     -   [Game play issues](#game-play-issues)
     -   [Performance Test with Lighthouse](#performance-test-with-lighthouse)
 -   [Deployment](#deployment)
