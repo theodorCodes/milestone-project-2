@@ -108,7 +108,7 @@ card creation (playing cards)
                                       - evaluated
 
 
-# Functions implemented
+# Main functions
 
 loadGame()
     `-> createGameLayout()
