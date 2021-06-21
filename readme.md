@@ -6,6 +6,10 @@ An **interactive memory game** with a twist as part of the Code Institute's mile
 
 
 
+---
+
+
+
 ### Table of Contents
 
 -   [Project](#project)
