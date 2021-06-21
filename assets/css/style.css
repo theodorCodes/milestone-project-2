@@ -348,7 +348,7 @@ span.footer-text {
 @media only screen and (max-width: 600px) {
 
   .game-wrapper {
-    min-height: calc(100vh - 215px)
+    min-height: calc(100vh - 207px)
   }
 
 }
