@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // <img src="assets/images/blank.png" data-id="0">
 
         // t: test log function repsonse
-        // console.log("t4: Testing if this function logs to console: Ok");
+        console.log("t4: Testing if this function logs to console: Ok");
         
       } // END of loop
 
