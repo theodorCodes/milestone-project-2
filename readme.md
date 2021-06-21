@@ -71,6 +71,8 @@ The traditional memory game is relatively simple; all you have to do is **flip t
 
 As this exercise is about interactivity, the game is designed to guide the user throughout the game. When the website launches, a modal view is presented to invite the user to start the game. During game play, the top header **provides useful information to the user**, such as reminding the user to "Choose another card" when the user accidentally clicks the same card twice, or informing the user about a match if a pair of cards is found. At the end of each level, a modal view appears to **inform the user of the game stats** and to **direct the user to the next level**.
 
+[back to top](#table-of-contents)
+
 
 
 ### Features Implemented
@@ -82,6 +84,8 @@ The main area features **playing cards**, which will be shuffled or **randomised
 Another important feature that has been implemented is the two modal views. The first modal view, "**the modal game assistant**", **introduces the user to the game** at the beginning and pops up after the end of each level to **display the game's stats** and to **lead the user to the next level**. The second modal view, "**the game preview**", is where the cards are presented to the user in the same order as they are going to be played. The user gets enough time to memorise the cards, their position and colors and can choose when to start the game. 
 
 Although not necessary for the game, at the end of the game, the user will be invited to click a link to learn more about what this game is all about or to play it again.
+
+[back to top](#table-of-contents)
 
 
 
@@ -120,6 +124,8 @@ loadGame()
                                         
 ```
 
+[back to top](#table-of-contents)
+
 
 
 
@@ -127,6 +133,8 @@ loadGame()
 ### UX Design Choices
 
 The navigation throughout the game is designed to be intuitive. To keep the design simple, the base colors are neutral and low-profile, while the playing cards are designed to spark entertainment and keep the eye busy and therefore focused on the cards.
+
+[back to top](#table-of-contents)
 
 
 
@@ -186,12 +194,16 @@ To: `<p><span id="game-assistant"></span></p>`
 
 The two issues have been resolved and the response was positive: **Document checking completed. No errors or warnings to show.**
 
+[back to top](#table-of-contents)
+
 
 
 ### CSS on W3C Jigsaw Validator
 
 The **CSS** code has been validated by direct input in the [W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/) and the respond of the validator has been positive:
 W3C CSS Validator results for TextArea (CSS level 3 + SVG): **Congratulations! No Error Found.**
+
+[back to top](#table-of-contents)
 
 
 
@@ -232,6 +244,8 @@ app.js:120: selectedCard(); # this was the problem as the function was was not f
 
 ```
 
+[back to top](#table-of-contents)
+
 
 
 ### JSHint and JavaScript
@@ -239,6 +253,8 @@ app.js:120: selectedCard(); # this was the problem as the function was was not f
 The **JavaScript** code has been validated by direct input on [JSHint](https://jshint.com/) and resulted in the following message:
 
 **Metrics:** There are <u>10</u> functions in this file. Function with the largest signature take <u>0</u> arguments, while the median is <u>0</u>. Largest function has <u>36</u> statements in it, while the median is <u>12.5</u>. The most complex function has a cyclomatic complexity value of <u>6</u> while the median is <u>2</u>.
+
+[back to top](#table-of-contents)
 
 
 
@@ -250,6 +266,8 @@ To ensure a smooth game-playing experience, I had to iron out some unexpected be
     -   **Solution:** To solve this issue the last item will be removed using the .pop() method when the array exceeds 2 items.
 -   **Issue 2:** Clicking on the same card multiple times was also an issue, resulting in unfavorable game results.
     -   **Solution:** To solve this issue, I removed the event listener on the already selected cards.
+
+[back to top](#table-of-contents)
 
 
 
