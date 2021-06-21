@@ -8,27 +8,27 @@ An interactive memory game with a twist as part of the Code Institute's mileston
 
 ### Table of Contents
 
--   Project 
-    -   Project Introduction
-    -   User Story and Goals
-    -   Developer Story and Goals
--   Features
-    -   Planned Features
-    -   Features Implemented
-    -   Features Left to Implement
--   Design
-    -   Programming Approach
-    -   UX Design Choices
-    -   Wireframes and Layout
--   Technologies Used
--   Testing
-    -   HTML on W3C Validator
-    -   CSS on W3C Jigsaw Validator
-    -   JavaScript and Chrome
-    -   JavaScript and JS Hint
-    -   Game play issues
-    -   Performance Test with Lighthouse
--   Deployment
+-   [Project](#project)
+    -   [Project Introduction](#project-introduction)
+    -   [User Story and Goals](#user-story-and-goals)
+    -   [Developer Story and Goals](#developer-story-and-goals)
+-   [Features](#features)
+    -   [Planned Features](#planned-features)
+    -   [Features Implemented](#features-implemented)
+    -   [Features Left to Implement](#features-left-to-implement)
+-   [Design](#design)
+    -   [Programming Approach](#programming-approach)
+    -   [UX Design Choices](#ux-design-choices)
+    -   [Wireframes and Layout](#wireframes-and-layout)
+-   [Technologies Used](#technologies-used)
+-   [Testing](#testing)
+    -   [HTML on W3C Validator](#html-on-w3c-validator)
+    -   [CSS on W3C Jigsaw Validator](#css-on-w3c-jigsaw-validator)
+    -   [JavaScript and Chrome](#javascript-and-chrome)
+    -   [JavaScript and JS Hint](#javascript-and-js-hint)
+    -   [Game play issues](#game-play-issues)
+    -   [Performance Test with Lighthouse](#performance-test-with-lighthouse)
+-   [Deployment](#deployment)
 -   [Credits](#credits)
 
 
