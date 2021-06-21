@@ -54,11 +54,13 @@ As a user, I expect a casual game to be **easy to understand** without any instr
 
 **Hands-on experience** of applying and building something with JavaScript after going through a long process of learning the ins and outs of this language. A game that looks and works flawlessly. **Implementation of features**, **running tests** and gaining **valuable experience** and problem-solving **practice**.
 
-At the beginning of this project, I thought about a traditional memory game where you flip the cards one by one, and collect the cards once you have found a matching pair. While doing a little bit of research about why it is challenging to play this game, I found out that we actually do not have an eidetic or photographic memory (please see the link to the [memory game](https://theodorcodes.github.io/milestone-project-2/)). Therefore, the idea of creating "a game to train your memory" has changed into a game to demonstrate how hard it actually is to recall an image in detail.
-
 
 
 ## Features
+
+
+
+At the beginning of this project, I thought about a traditional memory game where you flip the cards one by one, and collect the cards once you have found a matching pair. While doing a little bit of research about why it is challenging to play this game, I found out that we actually do not have an eidetic or photographic memory (please see the link to the [memory game](https://theodorcodes.github.io/milestone-project-2/)). Therefore, the idea of creating "a game to train your memory" has changed into a game to demonstrate how hard it actually is to recall an image in detail.
 
 
 
@@ -66,7 +68,7 @@ At the beginning of this project, I thought about a traditional memory game wher
 
 The traditional memory game is relatively simple; all you have to do is **flip the cards** and **find matching pairs**. To add some features, this game consists of **4 levels** and you can get to the next level once you have found all the pairs from the current level. As the level increases, **you are challenged to find more cards**. 
 
-As this exercise is about interactivity, the game is designed to guide the user throughout the game. When the website launches, a modal view is presented to invite the user to start the game. During game play, the top header provides useful information to the user, such as reminding the user to "Choose another card" when the user accidentally clicks the same card twice, or informing the user about a match if a pair of cards is found. At the end of each level, a modal view appears to inform the user of the game stats and to direct the user to the next level.
+As this exercise is about interactivity, the game is designed to guide the user throughout the game. When the website launches, a modal view is presented to invite the user to start the game. During game play, the top header **provides useful information to the user**, such as reminding the user to "Choose another card" when the user accidentally clicks the same card twice, or informing the user about a match if a pair of cards is found. At the end of each level, a modal view appears to **inform the user of the game stats** and to **direct the user to the next level**.
 
 
 
@@ -74,9 +76,9 @@ As this exercise is about interactivity, the game is designed to guide the user 
 
 Starting at the top of the game layout, the header contains a **game assistant** that enhances the interactivity of the game play and notifies the user of moves made, such as "You found a match" or "Try again" if the cards do not match. Right under the game assistant is the **game stats** area where the user can see the **current level**, **moves made** and **score,** which updates instantly once the user has found a pair of cards. 
 
-The main area features **playing cards**, which will be shuffled or **randomised** for each game. And at each additional level, the playing card increases in size. The footer area has a **reset button** which acts as a rescue button if a user might want to restart the game without finishing a level. 
+The main area features **playing cards**, which will be shuffled or **randomised** for each game. And at each additional level, the **playing cards increase in size**. The footer area has a **reset button** which acts as a rescue button if a user might want to restart the game without finishing a level. 
 
-Another important feature that has been implemented is the two modal views. The first modal view, "**the modal game assistant**", introduces the user to the game at the beginning and pops up after the end of each level to display the game's stats and to **lead the user to the next level**. The second modal view, "**the game preview**", is where the cards are presented to the user in the same order as they are going to be played. The user gets enough time to memorise the cards, their position and colors and can choose when to start the game. 
+Another important feature that has been implemented is the two modal views. The first modal view, "**the modal game assistant**", **introduces the user to the game** at the beginning and pops up after the end of each level to **display the game's stats** and to **lead the user to the next level**. The second modal view, "**the game preview**", is where the cards are presented to the user in the same order as they are going to be played. The user gets enough time to memorise the cards, their position and colors and can choose when to start the game. 
 
 Although not necessary for the game, at the end of the game, the user will be invited to click a link to learn more about what this game is all about or to play it again.
 
@@ -84,7 +86,7 @@ Although not necessary for the game, at the end of the game, the user will be in
 
 ### Features Left to Implement
 
-The design of the current cards has **letters as the** only motive, and it would be interesting to test if the level of difficulty of memory will increase or decrease depending on motives such as **numbers**, **geometrical shapes** or other **special characters**. As this is a game, the level of entertainment would improve by adding more animations in the right places.
+The design of the current cards has letters as the only motive, and it would be interesting to test if the level of difficulty of memory will increase or decrease depending on motives such as **numbers**, **geometrical shapes** or other **special characters**. As this is a game, the level of entertainment would improve by adding **more animations** in the right places.
 
 
 
