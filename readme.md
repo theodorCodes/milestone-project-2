@@ -1,8 +1,8 @@
 *Not the traditional memory game. It helps to find out if we have the capability to memorise images in detail. Instead of flipping cards to find pairs, you will be presented with a preview of the available cards before you start the traditional memory game. It aims to answer the question of whether we have an eidetic or photographic memory.*
 
-An interactive memory game with a twist as part of the Code Institute's milestone project 2. You can visit the page and play the game right [here!](https://theodorcodes.github.io/milestone-project-2/) 
-
 ![ms2-ui-2-mockup](/assets/images/ms2-ui-2-mockup.png)
+
+An **interactive memory game** with a twist as part of the Code Institute's milestone project 2. You can visit the page and play the game right [here!](https://theodorcodes.github.io/milestone-project-2/) 
 
 
 
