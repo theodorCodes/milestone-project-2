@@ -22,12 +22,12 @@ An interactive memory game with a twist as part of the Code Institute's mileston
     -   Wireframes and Layout
 -   Technologies Used
 -   Testing
-    -   HTML
-    -   CSS 
-    -   JavaScript and Chrome Dev Tools
+    -   HTML on W3C Validator
+    -   CSS on W3C Jigsaw Validator
+    -   JavaScript and Chrome
     -   JavaScript and JS Hint
     -   Game play issues
-    -   Testing Performance with Lighthouse
+    -   Performance Test with Lighthouse
 -   Deployment
 -   Credits
 
@@ -153,7 +153,7 @@ This project is written in **HTML**, **CSS** and **JavaScript**. All of the cust
 
 
 
-### HTML
+### HTML on W3C Validator
 
 The **HTML** code has been validated by direct input in the [W3C validator](https://validator.w3.org/) and resulted in the following warning:
 
@@ -179,14 +179,14 @@ The two issues have been resolved and the response was positive: **Document chec
 
 
 
-### CSS
+### CSS on W3C Jigsaw Validator
 
 The **CSS** code has been validated by direct input in the [W3C Jigsaw validator](https://jigsaw.w3.org/css-validator/) and the respond of the validator has been positive:
 W3C CSS Validator results for TextArea (CSS level 3 + SVG): **Congratulations! No Error Found.**
 
 
 
-### JavaScript
+### JavaScript and Chrome
 
 To debug JavaScript, the Chrome browser has been used extensively. `console.log()` and `console.table()` were my favorite tools to see if outputs were logged as expected. Here are the bugs I encountered:
 
@@ -225,11 +225,11 @@ app.js:120: selectedCard(); # this was the problem as the function was was not f
 
 
 
-### Testing JavaScript with JSHint
+### JavaScript on JSHint
 
-The **JavaScript** code has been validated by direct input on [JSHint](https://jshint.com/) and resulted in 0 problems.
+The **JavaScript** code has been validated by direct input on [JSHint](https://jshint.com/) and resulted in the following message:
 
-
+**Metrics:** There are <u>10</u> functions in this file. Function with the largest signature take <u>0</u> arguments, while the median is <u>0</u>. Largest function has <u>36</u> statements in it, while the median is <u>12.5</u>. The most complex function has a cyclomatic complexity value of <u>6</u> while the median is <u>2</u>.
 
 
 
@@ -244,11 +244,9 @@ To ensure a smooth game-playing experience, I had to iron out some unexpected be
 
 
 
+### Performance Test with Lighthouse
 
-
-### Testing Performance with Lighthouse
-
-**Google Chrome's Developer Tools** are used extensively for debugging as well as the built-in **Lighthouse** project to test the performance of this application. The responsive design has been tested using **Google Chrome's responsive feature** that emulates the screen sizes of various mobile devices. Further testing has been conducted through available devices such as MacBook Pro 13", iPad 12" and iPhone 8.
+**Google Chrome's Developer Tools** are used extensively for debugging as well as the built-in **Lighthouse** project to test the performance of this application. The responsive design has been tested using **Google Chrome's responsive feature** that emulates the screen sizes of various mobile devices. Further testing has been conducted through available devices such as MacBook Pro 13", iPad 12".
 
 When the Lighthouse generated a report for the **desktop** view, it produced the following results in the following categories:
 
@@ -266,11 +264,9 @@ When the Lighthouse generated a report for the **mobile** view, it produced the 
 
 
 
-
-
 ## Deployment
 
-The repository of this project is stored on **GitHub** and the site is deployed as a **GitHub page**. Please visit the project website by clicking [here!](https://theodorcodes.github.io/milestone-project-2/) As this application has no requirements other than the files itself and your browser, you could easily download the files and open the index.html file in your browser.
+The repository of this project is stored on **GitHub** and the site is deployed as a **GitHub page**. Please visit the project website by clicking [here!](https://theodorcodes.github.io/milestone-project-2/) As this application has no requirements other than the files itself and your browser, you could easily download the files and open the index.html file in your browser and it should work.
 
 
 
@@ -278,4 +274,4 @@ The repository of this project is stored on **GitHub** and the site is deployed 
 
 The [Code Institute](https://codeinstitute.net/) initiated this project to teach and mentor students on their path to becoming software developers.
 
-A huge thank you goes to [Ania Kubów](https://dev.to/ania_kubow/build-a-memory-game-in-vanilla-javascript-53l4), who showed us how to create a simple memory game using pure JavaScript. Her video on YouTube was very helpful in grasping the idea of which logic you can apply to create a memory game. And thanks to the Stack Overflow community in general, where I found a lot of answers to questions I had while working on this project.
+A special thanks goes to [Ania Kubów](https://dev.to/ania_kubow/build-a-memory-game-in-vanilla-javascript-53l4), who demonstrates how to make a simple memory game using pure JavaScript for beginners. Her video on YouTube was very helpful in grasping the idea of which logic you can apply to create a memory game. And thanks to the Stack Overflow community in general, where I found a lot of answers to questions I had while working on this project.
