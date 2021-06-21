@@ -29,8 +29,7 @@ An interactive memory game with a twist as part of the Code Institute's mileston
     -   Game play issues
     -   Performance Test with Lighthouse
 -   Deployment
--   Credits
-
+-   [Credits](#credits)
 
 
 
