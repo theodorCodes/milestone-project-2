@@ -25,7 +25,7 @@ An interactive memory game with a twist as part of the Code Institute's mileston
     -   [HTML on W3C Validator](#html-on-w3c-validator)
     -   [CSS on W3C Jigsaw Validator](#css-on-w3c-jigsaw-validator)
     -   [JavaScript and Chrome](#javascript-and-chrome)
-    -   [JavaScript and JSHint](#javascript-and-jshint)
+    -   [JSHint and JavaScript](#jshint-and-javascript)
     -   [Game play issues](#game-play-issues)
     -   [Performance Test with Lighthouse](#performance-test-with-lighthouse)
 -   [Deployment](#deployment)
@@ -226,7 +226,7 @@ app.js:120: selectedCard(); # this was the problem as the function was was not f
 
 
 
-### JavaScript on JSHint
+### JSHint and JavaScript
 
 The **JavaScript** code has been validated by direct input on [JSHint](https://jshint.com/) and resulted in the following message:
 
