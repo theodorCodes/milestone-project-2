@@ -23,8 +23,9 @@ An interactive memory game with a twist as part of the Code Institute's mileston
 -   Technologies Used
 -   Testing
     -   HTML
-    -   CSS
-    -   JavaScript
+    -   CSS 
+    -   JavaScript and Chrome Dev Tools
+    -   JavaScript and JS Hint
     -   Game play issues
     -   Testing Performance with Lighthouse
 -   Deployment
@@ -221,6 +222,14 @@ app.js:120: selectedCard(); # this was the problem as the function was was not f
 # commenting my console.log fixed the bug!
 
 ```
+
+
+
+### Testing JavaScript with JSHint
+
+The **JavaScript** code has been validated by direct input on [JSHint](https://jshint.com/) and resulted in 0 problems.
+
+
 
 
 

@@ -6,8 +6,10 @@ A) Bare minimum code to get a playable result
 B) Fixes to make the game more stable and prevent game play bugs
 C) More features and additional levels
 t) testing stuff
-
 */
+
+// jshint esversion: 6
+
 
 // t: test if index.html loads app.js file
 console.log("t1: Link from app.js to index.html established: Ok");
@@ -163,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
       playingCards = cardPackOne.concat(cardPackTwo, cardPackThree);
     } else if (currentLevel === 4) {
       playingCards = cardPackOne.concat(cardPackTwo, cardPackThree, cardPackFour);
-    };
+    }
 
     // A7) RANDOMIZE CARDS with .sort() and Math.random()
     playingCards.sort(() => 0.5 - Math.random());
