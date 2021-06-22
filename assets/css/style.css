@@ -274,7 +274,7 @@ span.footer-text {
   display: none;
   position: fixed;
   z-index: 20;
-  padding-top: 56px;
+  padding-top: 8px;
   left: 0;
   top: 0;
   width: 100%;
@@ -347,7 +347,7 @@ span.footer-text {
   display: none;
   position: fixed;
   z-index: 21;
-  padding-top: 56px;
+  padding-top: 1%;
   left: 0;
   top: 0;
   width: 100%;
@@ -475,6 +475,10 @@ span.footer-text {
 
   .header-wrapper {
     margin-top: 3%;
+  }
+
+  .modal-preview-assistant {
+    padding-top: 3%;
   }
 
 }
