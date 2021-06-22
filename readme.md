@@ -301,7 +301,7 @@ When the Lighthouse generated a report for the **mobile** view, it produced the 
 
 ## Deployment
 
-The repository of this project is stored on **GitHub** and the site is deployed as a **GitHub page**. Please visit the project website by clicking [here!](https://theodorcodes.github.io/milestone-project-2/) As this application has no requirements other than the files itself and your browser, you could easily download the files and open the index.html file in your browser and it should work.
+The repository of this project is stored on **GitHub** and the site is deployed as a **GitHub page**. Please visit the project website by clicking [here!](https://theodorcodes.github.io/milestone-project-2/) As this application has no requirements other than the files itself and your browser, you can easily download the files and open the index.html file in your browser and it should work.
 
 [back to top](#table-of-contents)
 
