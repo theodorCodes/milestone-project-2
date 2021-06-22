@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // A2) PLAYING CARDS
     // create array with objects of cards with image name
-    // and path for each img . each card is repeated to create pairs
+    // and path for each img. each card is repeated to create pairs
     // extend game by adding more images or image cardPacks
 
     const cardPackOne = [
@@ -365,7 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function selectedCard() {
 
       // REGISTER selected card
-      // Added the attribute data-id to mark each card with a
+      // added the attribute data-id to mark each card with a
       // id number in step 4. 
       // now storing the data-id attribute value of selected card
       // in the variable cardId to make it usable for this function
