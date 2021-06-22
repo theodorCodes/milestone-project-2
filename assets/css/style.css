@@ -1,3 +1,6 @@
+/* general settings
+-------------------------------------------------------------------------- */
+
 @font-face {
   font-family: "cascadia code";
   src: url("../fonts/cascadia_code_bold.otf");
@@ -84,12 +87,6 @@ button {
   color: #673ab7;
 }
 
-button#open-contact-view {
-  /* font-size: 15px; */
-  /* color: #0000EE; */
-  /* padding-top: 5px; */
-}
-
 /* deck of cards */
 .board {
   display: flex;
@@ -126,6 +123,17 @@ img {
   justify-content: center;
 }
 
+.footer-links {
+  padding-bottom: 12px;
+  text-align: center;
+}
+
+span.footer-text {
+  color:#57426A;
+  font-family: "cascadia code", sans-serif;
+  font-size: 15px;
+}
+
 /* feedback and reset button */
 .open-contact-view,
 .reset {
@@ -133,6 +141,56 @@ img {
   align-items: center;
   height: 60px;
 }
+
+
+
+/* ANIMATIONS and transitions
+-------------------------------------------------------------------------- */
+
+/* button transition */
+#modal-btn-option,
+#modal-preview-btn-option,
+#feedback-submit,
+#reset {
+  transition-duration: 200ms;
+  transition-property: color, font-size;
+  transition-timing-function: cubic-bezier(0.42, 0, 0.49, 1.51);
+}
+
+/* apply button transition on hover */
+#modal-btn-option:hover,
+#modal-preview-btn-option:hover,
+#feedback-submit:hover,
+#reset:hover {
+  color: #996FDD;
+  font-size: 20px;
+}
+
+/* card preview animation for Chrome, Safari and Opera */
+@-webkit-keyframes animation-1 {
+  from {opacity: 0; transform: rotateY(180deg);}
+  to {opacity:1; transform: rotateY(0deg);}
+
+}
+
+/* card preview animation for all other browsers */
+@keyframes animation-1 {
+  from {opacity: 0; transform: rotateY(180deg);}
+  to {opacity:1; transform: rotateY(0deg);}
+}
+
+/* apply animation-1 */
+.modal-preview > img {
+  /* card preview with keyframe animation */
+  -webkit-animation-name: animation-1; /* Chrome, Safari, Opera */
+  -webkit-animation-duration: 800ms; /* Chrome, Safari, Opera */
+  animation-name: animation-1;
+  animation-duration: 800ms;
+}
+
+
+/* modal CONTACT FORM
+-------------------------------------------------------------------------- */
 
 #modal-contact-view {
   display: none;
@@ -210,64 +268,8 @@ input, textarea {
   height: 60px;
 }
 
-.footer-links {
-  padding-bottom: 12px;
-  text-align: center;
-}
 
-span.footer-text {
-  color:#57426A;
-  font-family: "cascadia code", sans-serif;
-  font-size: 15px;
-}
-
-
-/* ANIMATIONS credits Web Dev Simplified by Kyle Cook
--------------------------------------------------------------------------- */
-
-/* button transition */
-#modal-btn-option,
-#modal-preview-btn-option,
-#feedback-submit,
-#reset {
-  transition-duration: 200ms;
-  transition-property: color, font-size;
-  transition-timing-function: cubic-bezier(0.42, 0, 0.49, 1.51);
-}
-
-/* apply button transition on hover */
-#modal-btn-option:hover,
-#modal-preview-btn-option:hover,
-#feedback-submit:hover,
-#reset:hover {
-  color: #996FDD;
-  font-size: 20px;
-}
-
-/* card preview animation for Chrome, Safari and Opera */
-@-webkit-keyframes animation-1 {
-  from {opacity: 0; transform: rotateY(180deg);}
-  to {opacity:1; transform: rotateY(0deg);}
-
-}
-
-/* card preview animation for all other browsers */
-@keyframes animation-1 {
-  from {opacity: 0; transform: rotateY(180deg);}
-  to {opacity:1; transform: rotateY(0deg);}
-}
-
-/* apply animation-1 */
-.modal-preview > img {
-  /* card preview with keyframe animation */
-  -webkit-animation-name: animation-1; /* Chrome, Safari, Opera */
-  -webkit-animation-duration: 800ms; /* Chrome, Safari, Opera */
-  animation-name: animation-1;
-  animation-duration: 800ms;
-}
-
-
-/* MODAL - GAME ASSISTANT 
+/* modal GAME ASSISTANT 
 -------------------------------------------------------------------------- */
 
 .modal-view-assistant {
@@ -340,7 +342,7 @@ span.footer-text {
 }
 
 
-/* MODAL - CARDS PREVIEW
+/* modal CARDS PREVIEW
 -------------------------------------------------------------------------- */
 
 .modal-preview-assistant {
@@ -408,7 +410,7 @@ span.footer-text {
 /* MEDIA QUERIES
 -------------------------------------------------------------------------- */
 
-/* very small screens under 420px */
+/* small screens under 420px */
 @media only screen and (max-width: 420px) {
 
   h3 {
