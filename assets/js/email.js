@@ -2,8 +2,10 @@
 Send email function
 */
 
+// t:
+// jshint esversion: 6
 
-/* sendMail() function
+/* sendMail function
 ------------------------------------------------------------- */
 // declaring function with a parameter of contactForm
 function sendMail(contactForm) {
@@ -50,6 +52,6 @@ function sendMail(contactForm) {
 
   );
 
-  return false;  // to block from loading a new page or prevent page refresh
+  return false;  // block from loading a new page or prevent page refresh
 
 }
