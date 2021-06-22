@@ -5,9 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- files required -->
+  <!-- stylesheet -->
   <link href="assets/css/style.css" rel="stylesheet" type="text/css">
+  <!-- email API script -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+  <!-- email API key -->
+  <script src="assets/js/emailuser.js"></script>
+  <!-- game file -->
   <script src="assets/js/app.js"></script>
   <title>The Memory Game</title>
 </head>
@@ -67,18 +71,77 @@
   <footer>
     <div class="footer-wrapper">
       <div class="footer-content">
-        <!-- reloaad page -->
-        <div class="reset">
-          <button id="reset" type="button" value="Reload Page" onClick="window.location.reload(true)">Reset
-            Game</button>
-        </div>
-        <div class="footer-links">
-          <span class="footer-text">Find out more about <a href="https://en.wikipedia.org/wiki/Eidetic_memory"
-              target="_blank" rel="noopener">Eidetic memory</a>.</span>
+        <div class="footer-top">
+          <!-- contact -->
+          <div class="footer-contact">
+            <!-- open modal contact view - button -->
+            <button id="open-contact-view" type="button">
+              Feedback
+            </button>
+            <!-- modal contact view -->
+            <div id="modal-contact-view" class="modal-contact-form">
+              <!-- modal contact form -->
+              <div class="modal-contact-form-content">
+                <span class="close-contact-view">close</span>
+                <h3 class="contact-heading">Get In Touch</h3>
+                <div class="contact-form-fields">
+                  <p>Leave a feedback or report a bug</p>
+                  <!-- email API submit: adding the onsubmit attribute to the 'form' 
+                  element so that the sendMail function is invoked when the form is 
+                  submitted. adding the keyword 'this' as a parameter, which refers 
+                  to this form below, and adding the method of POST. -->
+                  <form id="formId" onsubmit="return sendMail(this);" method="POST">
+                    <input type="text" name="name" id="fullname" placeholder="Your Name" required />
+                    <input type="email" name="email" id="emailaddress" placeholder="Your Email" required />
+                    <textarea rows="12" name="projectsummary" id="projectsummary"
+                      placeholder="Leave us feedback, suggest an idea, or report a bug." required></textarea>
+                    <div class="submit-button-wrapper">
+                      <button id="feedback-submit" class="contact-submit-button" type="submit">Submit</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+            <!-- reloaad page - button -->
+            <div class="reset">
+              <button id="reset" type="button" value="Reload Page" onClick="window.location.reload(true)">
+                Reset Game
+              </button>
+            </div>
+          </div>
+          <div class="footer-external-link">
+            <div class="footer-links">
+              <span class="footer-text">Find out more about <a href="https://en.wikipedia.org/wiki/Eidetic_memory"
+                  target="_blank" rel="noopener">Eidetic memory</a>.</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </footer>
+
+  <!-- email API custom js -->
+  <script src="assets/js/email.js"></script>
+  <script>
+    // modal contact form view - variables
+    let modalContactView = document.getElementById("modal-contact-view");
+    let openModalContact = document.getElementById("open-contact-view");
+    let closeModalContact = document.getElementsByClassName("close-contact-view")[0];
+    // show modal contact form
+    openModalContact.onclick = function () {
+      modalContactView.style.display = "block";
+    }
+    // close modal contact form
+    closeModalContact.onclick = function () {
+      modalContactView.style.display = "none";
+    }
+    // close modal contact form
+    window.onclick = function (contact) {
+      if (contact.target === modalContactView) {
+        modalContactView.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 

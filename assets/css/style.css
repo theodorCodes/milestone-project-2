@@ -84,6 +84,12 @@ button {
   color: #673ab7;
 }
 
+button#open-contact-view {
+  /* font-size: 15px; */
+  /* color: #0000EE; */
+  /* padding-top: 5px; */
+}
+
 /* deck of cards */
 .board {
   display: flex;
@@ -105,19 +111,102 @@ img {
 .footer-content {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  align-items: center;
   background-color: #f3eeeb;
 }
 
-/* reset button */
+.footer-top {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* feedback and reset button */
+.open-contact-view,
 .reset {
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
   align-items: center;
+  height: 60px;
+}
+
+#modal-contact-view {
+  display: none;
+  position: fixed;
+  z-index: 20;
+  padding-top: 70px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #0000003d;
+}
+
+.close-contact-view {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #b27de2;
+  font-size: 15px;
+}
+
+.close-contact-view:hover {
+  cursor: pointer;
+}
+
+.modal-contact-form-content {
+  background-color: #ece8e6;
+  margin: auto;
+  padding: 20px;
+  max-width: 420px;
+  font-family: "cascadia code", sans-serif;
+  font-size: 15px;
+}
+
+.modal-contact-form-content > h3 {
+  margin-top: 40px;
+}
+
+.contact-form-fields {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.contact-form-fields > p {
+  color: #8155A9;
+  font-size: 16px;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+
+input {
+  height: 40px;
+}
+
+input, textarea {
+  font-family: "cascadia code", sans-serif;
+  font-size: 15px;
+  color: #57426A;
+  padding: 10px;
+}
+
+.submit-button-wrapper {
+  margin: 30px auto;
+}
+
+.contact-submit-button {
   height: 60px;
 }
 
@@ -139,6 +228,7 @@ span.footer-text {
 /* button transition */
 #modal-btn-option,
 #modal-preview-btn-option,
+#feedback-submit,
 #reset {
   transition-duration: 200ms;
   transition-property: color, font-size;
@@ -148,6 +238,7 @@ span.footer-text {
 /* apply button transition on hover */
 #modal-btn-option:hover,
 #modal-preview-btn-option:hover,
+#feedback-submit:hover,
 #reset:hover {
   color: #996FDD;
   font-size: 20px;
@@ -349,6 +440,18 @@ span.footer-text {
   .game-wrapper {
     min-height: calc(100vh - 207px)
   }
+  
+  #modal-contact-view {
+    padding-top: 0;
+  }
+  
+  .modal-contact-form-content {
+    height: 100%;
+  }
+
+  .contact-heading {
+    font-size: 20px;
+  }
 
 }
 
@@ -357,11 +460,21 @@ span.footer-text {
 @media only screen and (min-width: 601px) {
 
   .header-wrapper {
-    margin-top: 3%;
+    margin-top: 1%;
   }
 
   .game-wrapper {
     height: calc(776px - 240px)
+  }
+
+}
+
+
+/* large desktops */
+@media only screen and (min-width: 1800px) {
+
+  .header-wrapper {
+    margin-top: 3%;
   }
 
 }

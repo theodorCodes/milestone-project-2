@@ -8,6 +8,7 @@ C) More features and additional levels
 t) testing stuff
 */
 
+// t:
 // jshint esversion: 6
 
 
@@ -41,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let modalMsg3 = document.querySelector("#modal-msg-3"); // C) shows modal content 3
   let modalMsg4 = document.querySelector("#modal-msg-4"); // C) shows modal content 4
   let modalMsg5 = document.querySelector("#modal-msg-5"); // C) shows modal content 5
-  let modalBtnOption = document.querySelector("#modal-btn-option"); // C) Modal view button
+  let modalBtnOption = document.querySelector("#modal-btn-option"); // C) modal view button
 
   // C) variables - modal preview for photographic-memory game play
   let modalPreviewAssistant = document.querySelector(".modal-preview-assistant"); // C) to show/hide modal view
@@ -422,4 +423,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
   } // function loadGame() END
 
-}); // function(event) END
+}); // function() END

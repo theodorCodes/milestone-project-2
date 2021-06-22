@@ -2,11 +2,13 @@
 
 ![ms2-ui-2-mockup](/assets/images/ms2-ui-2-mockup.png)
 
-An **interactive memory game** with a twist as part of the Code Institute's milestone project 2. You can visit the page and play the game right [here!](https://theodorcodes.github.io/milestone-project-2/) 
+An **interactive memory game** with a twist as part of the Code Institute's milestone project 2. 
+
+You can visit the page and play the game right [here!](https://theodorcodes.github.io/milestone-project-2/) 
 
 
 
----
+
 
 
 
