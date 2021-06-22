@@ -85,7 +85,7 @@ As this exercise is about interactivity, the game is designed to guide the user 
 
 Starting at the top of the game layout, the header contains a **game assistant** that enhances the interactivity of the game play and notifies the user of moves made, such as "You found a match" or "Try again" if the cards do not match. Right under the game assistant is the **game stats** area where the user can see the **current level**, **moves made** and **score,** which updates instantly once the user has found a pair of cards. 
 
-The main area features **playing cards**, which will be shuffled or **randomised** for each game. And at each additional level, the **playing cards increase in size**. The footer area has a **reset button** which acts as a rescue button if a user might want to restart the game without finishing a level. 
+The main area features **playing cards**, which will be shuffled or **randomised** for each game. And at each additional level, the **playing cards increase in size**. The footer area has a **reset button** which acts as a rescue button if a user might want to restart the game without finishing a level. As well as a feedback button that takes the user to a modal **contact form** where a user can leave feedback or report a bug.
 
 Another important feature that has been implemented is the two modal views. The first modal view, "**the modal game assistant**", **introduces the user to the game** at the beginning and pops up after the end of each level to **display the game's stats** and to **lead the user to the next level**. The second modal view, "**the game preview**", is where the cards are presented to the user in the same order as they are going to be played. The user gets enough time to memorise the cards, their position and colors and can choose when to start the game. 
 
@@ -166,7 +166,7 @@ Each card has a default size of 100 * 100px, but its implementation is responsiv
 
 
 
-This project is written in **HTML**, **CSS** and **JavaScript**. All of the custom code is written with the **Visual Studio Code** editor on a personal **Mac computer**. This project uses **Git** for version control and is stored as a public repository on **GitHub**. **Sketch** is used to create the gaming cards as well as the images in this README file.
+This project is written in **HTML**, **CSS** and **JavaScript**. The email service is provided by **Gmail** and the contact form uses the **EmailJS** service to trigger the emails from JavaScript to send emails in a predefined format. All of the custom code is written with the **Visual Studio Code** editor on a personal **Mac computer**. This project uses **Git** for version control and is stored as a public repository on **GitHub**. **Sketch** is used to create the gaming cards as well as the images in this README file.
 
 [back to top](#table-of-contents)
 
